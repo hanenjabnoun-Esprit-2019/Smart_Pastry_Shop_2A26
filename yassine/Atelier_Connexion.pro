@@ -3,9 +3,11 @@
 # Project created by QtCreator 2018-10-26T21:45:23
 #
 #-------------------------------------------------
+QT += sql
 
 QT       += core gui sql
 
+CONFIG += console
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Atelier_Connexion
@@ -25,12 +27,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    carte_fid.cpp \
     client.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp
 
 HEADERS += \
+    carte_fid.h \
     client.h \
         mainwindow.h \
     connection.h

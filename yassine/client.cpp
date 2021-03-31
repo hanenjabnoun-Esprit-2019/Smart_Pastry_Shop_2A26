@@ -37,7 +37,7 @@ bool CLIENT::ajouter()
     QString numero_string=QString::number(numero);
 
 
-        query.prepare("INSERT INTO employer (id, nom, prenom,email,numero) "
+        query.prepare("INSERT INTO CLIENT (id, nom, prenom,email,numero) "
                   "VALUES (:id, :nom, :prenom, :email, :numero)");
         query.bindValue(":id", id_string);
         query.bindValue(":nom", nom);
@@ -67,7 +67,7 @@ return    query.exec();
 QSqlQueryModel* CLIENT::afficher()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
-        model->setQuery("SELECT * FROM employer");
+        model->setQuery("SELECT * FROM CLIENT");
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
