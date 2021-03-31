@@ -22,9 +22,15 @@ public:
     void setnumero(int);
 
     bool ajouter();
-    bool supprimer(int);
     QSqlQueryModel* afficher();
+    QSqlQueryModel * afficherC();
+
+    bool supprimer(int);
+
     bool modifier(int,QString,QString,QString,int);
+     bool rech(int);
+     QSqlQueryModel * afficherclientchercher();
+     QSqlQueryModel * trier_id();
 
 private:
     int id;

@@ -92,4 +92,65 @@ bool CLIENT::modifier(int id,QString nom,QString prenom,QString email,int numero
     return query.exec();
 }
 
+bool CLIENT::rech(int id){
+    QSqlQuery query;
+    QString id_string=QString::number(id);
+    QString numero_string=QString::number(numero);
+
+    query.prepare("select * from CLIENT where id = :id");
+    query.bindValue(":id", id_string);
+    query.bindValue(":nom", nom);
+    query.bindValue(":prenom", prenom);
+    query.bindValue(":email", email);
+    query.bindValue(":numero", numero_string);
+
+
+    return query.exec();
+}
+
+QSqlQueryModel * CLIENT::afficherclientchercher()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from CLIENT where id= :id");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Email"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero telephone"));
+
+
+    return model;
+}
+
+QSqlQueryModel * CLIENT::trier_id()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from CLIENT ORDER BY id");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Email"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero telephone"));
+
+
+        return model;
+}
+
+
+QSqlQueryModel * CLIENT::afficherC()
+{
+
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("select CLIENT.CIN,ClIENT.NOM,ClIENT.PRENOM,CARTE_FID.TYPE,CARTE_FID.PT,ClIENT.NUMERO from CLIENT inner JOIN CARTE_FID ON CLIENT.ID = CARTE_FID.ID_CLIENT");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Type carte fidelite"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Nombre points fidelite"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Numero telephone"));
+
+        return model;
+}
+
 
