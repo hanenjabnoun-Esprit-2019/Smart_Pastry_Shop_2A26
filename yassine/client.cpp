@@ -4,12 +4,14 @@
 #include <QObject>
 #include <QSqlQueryModel>
 
+#include "carte_fid.h"
+
 CLIENT::CLIENT()
 {
 id=0; nom=""; prenom=""; email=""; numero=0;
 }
 
-CLIENT::CLIENT(int id,QString nom,QString prenom,QString email,int numero)
+CLIENT::CLIENT(int id, QString nom, QString prenom, QString email, long numero)
 {
 this->id=id;
 this->nom=nom;
@@ -22,12 +24,12 @@ int CLIENT::getid(){return id;}
 QString CLIENT::getnom(){return nom;}
 QString CLIENT::getprenom(){return prenom;}
 QString CLIENT::getemail(){return email;}
-int CLIENT::getnumero(){return numero;}
+long CLIENT::getnumero(){return numero;}
 void CLIENT::setid(int id){this->id=id;}
 void CLIENT::setnom(QString nom){this->nom=nom;}
 void CLIENT::setprenom(QString prenom){this->prenom=prenom;}
 void CLIENT::setemail(QString email){this->email=email;}
-void CLIENT::setnumero(int numero){this->numero=numero;}
+void CLIENT::setnumero(long numero){this->numero=numero;}
 
 
 bool CLIENT::ajouter()
@@ -71,13 +73,13 @@ QSqlQueryModel* CLIENT::afficher()
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
-        model->setHeaderData(3, Qt::Horizontal, QObject::tr("Email"));
-        model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero telephone"));
+        model->setHeaderData(3, Qt::Horizontal, QObject::tr("Numero telephone"));
+        model->setHeaderData(4, Qt::Horizontal, QObject::tr("Email"));
 
         return model;
 }
 
-bool CLIENT::modifier(int id,QString nom,QString prenom,QString email,int numero){
+bool CLIENT::modifier(int id,QString nom,QString prenom,QString email,long numero){
     QSqlQuery query;
     QString id_string=QString::number(id);
     QString numero_string=QString::number(numero);

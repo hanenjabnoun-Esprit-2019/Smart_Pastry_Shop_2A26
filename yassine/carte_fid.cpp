@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QSqlQueryModel>
 
+#include "client.h"
+
 carte_fid::carte_fid()
 {
 id=0; type=""; pt=0; id_client=0;

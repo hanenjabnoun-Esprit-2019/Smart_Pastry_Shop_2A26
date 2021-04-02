@@ -6,7 +6,7 @@
 QT += sql
 
 QT       += core gui sql
-
+QT += network
 CONFIG += console
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -40,8 +40,7 @@ HEADERS += \
     connection.h
 
 FORMS += \
-        carte_fid.ui \
-        client.ui
+        mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

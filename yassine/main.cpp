@@ -2,6 +2,15 @@
 #include <QApplication>
 #include <QMessageBox>
 #include "connection.h"
+
+#include <QSqlDatabase>
+
+
+
+#include <QtCore>
+#include <QPdfWriter>
+#include <QPainter>
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

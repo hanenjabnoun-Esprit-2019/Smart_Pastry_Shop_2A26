@@ -7,19 +7,19 @@ class CLIENT
 {
 public:
     CLIENT();
-    CLIENT(int,QString,QString,QString,int);
+    CLIENT(int,QString,QString,QString,long);
 
     int getid();
     QString getnom();
     QString getprenom();
     QString getemail();
-    int getnumero();
+    long getnumero();
 
     void setid(int);
     void setnom(QString);
     void setprenom(QString);
     void setemail(QString);
-    void setnumero(int);
+    void setnumero(long);
 
     bool ajouter();
     QSqlQueryModel* afficher();
@@ -27,7 +27,7 @@ public:
 
     bool supprimer(int);
 
-    bool modifier(int,QString,QString,QString,int);
+    bool modifier(int,QString,QString,QString,long);
      bool rech(int);
      QSqlQueryModel * afficherclientchercher();
      QSqlQueryModel * trier_id();
@@ -35,7 +35,7 @@ public:
 private:
     int id;
     QString nom , prenom , email;
-    int numero;
+    long numero;
 };
 
 #endif // CLIENT_H
