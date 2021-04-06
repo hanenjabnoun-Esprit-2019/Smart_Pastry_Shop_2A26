@@ -81,15 +81,33 @@ MainWindow::MainWindow(QWidget *parent)
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->le_id->setValidator(new QIntValidator(0, 9999999, this));
 
-        ui->tab_client->setModel(C.afficher());
-        ui->tab_client->setSelectionBehavior(QAbstractItemView::SelectRows);
-        ui->tab_client->setSelectionMode(QAbstractItemView::SingleSelection);
 
-        ui->tab_carte->setModel(F.afficher_carte());
-        ui->tab_carte->setSelectionBehavior(QAbstractItemView::SelectRows);
-        ui->tab_carte->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    //     Positions initiale des boutons
+    ui->billetterie->setGeometry(60,160,131,71);
+    ui->stock->setGeometry(60,220,131,71);
+    ui->abonnement->setGeometry(60,280,131,71);
+    ui->materiel->setGeometry(60,340,131,71);
+    ui->salaries->setGeometry(60,400,131,71);
+    ui->cinehome->setGeometry(60,460,131,71);
+
+
+
+    //************************************************** Yassine
+    ui->comboBox_4->setModel(tmpabonnee.afficher_combobox());
+    ui->comboBox_3->setModel(tmpabonnee.afficher_combobox());
+
+
+
+    ui->tababonne->setModel(tmpabonnee.afficher());
+    ui->comboBox_ida->setModel(tmpabonnee.afficher_combobox());
+    ui->comboBox_ida_2->setModel(tmpabonnee.afficher_combobox());
+
+    //********************************************************
+
+
+
 
 }
 
@@ -98,76 +116,221 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pb_ajouter_clicked()
+
+//******************************* ABONNEMENT ***************** Yassine
+
+
+
+void MainWindow::on_pb_ajouter_abonne_clicked()
 {
-    QMessageBox msgBox;
+    bool test;
+    int cin= ui->lineEdit_cin->text().toInt();
+    QString nom= ui->lineEdit_nom->text();
+    QString prenom=ui->lineEdit_prenom->text();
+    QString mail= ui->lineEdit_mail->text();
+    long tel= ui->lineEdit_tel->text().toLong();
 
-int id=ui->le_id->text().toInt();
-QString nom=ui->le_nom->text();
-QString prenom=ui->le_prenom->text();
-QString email=ui->le_email->text();
-long numero=ui->le_numero->text().toLong();
-    CLIENT C(id,nom,prenom,email,numero);
-    bool test=C.ajouter();
+    if(nom==""|| prenom==""|| cin==0||cin>99999999||nom.length()>10||tel==0||tel>99999999||tel<10000000)
+    {
+        QMessageBox::critical(nullptr, QObject::tr("vide"),
+                              QObject::tr("veuillez saisir tous les champs correctement!\n"), QMessageBox::Cancel);
+        test=false;
+    }else
+    {
+        CLIENT a(cin,nom,prenom,mail,tel);
 
+        test=a.ajouter();}
     if(test)
-    {   msgBox.setText("Ajout avec succes.");
-        ui->tab_client->setModel(C.afficher());}
+    {
+        refresh();
+        QMessageBox::information(nullptr, QObject::tr("Ajouter un abonnee"),
+                                 QObject::tr("abonnee ajouté.\n"
+                                             "Click Cancel to exit."), QMessageBox::Cancel);
+    }else
+        QMessageBox::critical(nullptr, QObject::tr("Ajouter un abonnee"),
+                              QObject::tr("Erreur !.\n"
+                                          "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_radioButton_clicked()
+{
+    ui->tababonne->setModel( tmpabonnee.afficher_tri_cin());
+}
+
+void MainWindow::on_pb_supprimer_abonne_clicked()
+{
+    int res=ui->comboBox_3->currentText().toInt();
+
+    QString str = " Vous voulez vraiment supprimer \n l'abonne :";
+    int ret = QMessageBox::question(this, tr("Abonne"),str,QMessageBox::Ok|QMessageBox::Cancel);
+
+    switch (ret) {
+    case QMessageBox::Ok:
+        if (tmpabonnee.supprimer(res)){
+
+            refresh();
+        }else
+        {
+            QMessageBox::critical(0, qApp->tr("Suppression"),
+                                  qApp->tr("Abonne non trouvé "), QMessageBox::Cancel);
+        }
+        break;
+    case QMessageBox::Cancel:
+
+        break;
+    default:
+        // should never be reached
+        break;
+    }
+
+}
+
+void MainWindow::on_pb_modifier_abonne_clicked()
+{
+    int cin= ui->comboBox_4->currentText().toInt();
+    QString nom=ui->lineEdit_modifier_nom->text();
+    QString prenom=ui->lineEdit_modifier_prenom->text();
+    QString mail= ui->lineEdit_modifier_mail->text();
+    long tel= ui->lineEdit_modifier_tel->text().toLong();
+
+    if(nom==""|| prenom==""|| cin==0||cin>99999999||nom.length()>10||tel==0||tel>99999999||tel<10000000)
+    {
+        QMessageBox::critical(nullptr, QObject::tr("vide"),
+                              QObject::tr("veuillez saisir tous les champs correctement!\n"), QMessageBox::Cancel);
+
+    }else
+    {
+        bool test=tmpabonnee.modifier(cin,nom,prenom,mail,tel);
+
+        if (test)
+        {   refresh();
+            QMessageBox::information(nullptr, QObject::tr("Modifier un abonne"),
+                                     QObject::tr("abonne modifié.\n"
+                                                 "Click Cancel to exit."), QMessageBox::Cancel);
+
+        }else
+            QMessageBox::critical(nullptr, QObject::tr("Modifier un abonne"),
+                                  QObject::tr("Erreur !.\n"
+                                              "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+}
+
+
+
+
+
+
+
+
+void MainWindow::on_comboBox_4_activated()
+{
+    int cin= ui->comboBox_4->currentText().toInt();
+    QString res = QString:: number(cin);
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM CLIENT WHERE CIN=:cin");
+    query.bindValue(":cin", res);
+
+    if(query.exec())
+    {
+        while(query.next())
+        {
+            ui->lineEdit_modifier_nom->setText(query.value(1).toString());
+            ui->lineEdit_modifier_prenom->setText(query.value(2).toString());
+            ui->lineEdit_modifier_mail->setText(query.value(3).toString());
+            ui->lineEdit_modifier_tel->setText(query.value(4).toString());
+
+        }
+    }
+
+}
+
+
+
+
+
+void MainWindow::on_pdf_clicked()
+{
+    QPdfWriter pdf("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/PdfClients.pdf");
+    QPainter painter(&pdf);
+    int i = 4000;
+    painter.setPen(Qt::blue);
+    painter.setFont(QFont("Arial", 30));
+    painter.drawText(2300,1200,"Liste Des Clients");
+    painter.setPen(Qt::black);
+    painter.setFont(QFont("Arial", 50));
+    // painter.drawText(1100,2000,afficheDC);
+    painter.drawRect(1500,200,7300,2600);
+    //painter.drawPixmap(QRect(7600,70,2000,2600),QPixmap("C:/Users/RH/Desktop/projecpp/image/logopdf.png"));
+    painter.drawRect(0,3000,9600,500);
+    painter.setFont(QFont("Arial", 9));
+    painter.drawText(300,3300,"CIN");
+    painter.drawText(2300,3300,"NOM");
+    painter.drawText(4300,3300,"PRENOM");
+    painter.drawText(6300,3300,"EMAIL");
+    painter.drawText(8000,3300,"TELEPHONE");
+
+    QSqlQuery query;
+    query.prepare("select * from CLIENT");
+    query.exec();
+    while (query.next())
+    {
+        painter.drawText(300,i,query.value(0).toString());
+        painter.drawText(2300,i,query.value(1).toString());
+        painter.drawText(4300,i,query.value(2).toString());
+        painter.drawText(6300,i,query.value(3).toString());
+        painter.drawText(8000,i,query.value(4).toString());
+        i = i +500;
+    }
+    int reponse = QMessageBox::question(this, "Génerer PDF", "<PDF Enregistré>...Vous Voulez Affichez Le PDF ?", QMessageBox::Yes |  QMessageBox::No);
+    if (reponse == QMessageBox::Yes)
+    {
+        QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/PdfClients.pdf"));
+
+        painter.end();
+    }
+    if (reponse == QMessageBox::No)
+    {
+        painter.end();
+    }
+}
+
+void MainWindow::on_rechercher_abonne_textChanged()
+{
+    if(ui->rechercher_abonne->text()!="")
+    {
+        QString b=ui->combo_rech_abonne->currentText();
+        QString a=ui->rechercher_abonne->text();
+        ui->tababonne->setModel(tmpabonnee.displayClause("WHERE ("+b+" LIKE '%"+a+"%')"));
+    }
     else
-                msgBox.setText("Echec d'ajout");
-                msgBox.exec();
-}
-
-void MainWindow::on_pb_supprimer_clicked()
-{
-    CLIENT C1;
-       C1.setid(ui->le_id_supp->text().toInt());
-       int id=ui->le_id_supp->text().toInt();
-       QMessageBox msgBox;
-       bool test=C1.supprimer(id);
-       if(test)
-       {   msgBox.setText("Suppression avec succes.");
-        ui->tab_client->setModel(C.afficher());}
-
-       else
-                   msgBox.setText("Echec de supression");
-                   msgBox.exec();
+        ui->tababonne->setModel(tmpabonnee.afficher());
 }
 
 
 
 
-void MainWindow::on_pb_ajouter_carte_clicked()
+
+void MainWindow::on_radioButton_5_clicked()
 {
-    QMessageBox msgBox;
-
-int id=ui->le_id_carte->text().toInt();
-QString type=ui->le_type->text();
-int pt=ui->le_pt->text().toInt();
-int id_client=ui->le_id_client->text().toInt();
-    carte_fid F(id,type,pt,id_client);
-    bool test=F.ajouter_carte();
-
-    if(test)
-    {   msgBox.setText("Ajout avec succes.");
-        ui->tab_carte->setModel(F.afficher_carte());}
-    else
-                msgBox.setText("Echec d'ajout");
-                msgBox.exec();
+    ui->tababonne->setModel( tmpabonnee.afficher_trinom());
 }
 
-void MainWindow::on_pb_supprimer_carte_clicked()
-{
-    carte_fid F1;
-       F1.setid(ui->le_id_supp_carte->text().toInt());
-       int id=ui->le_id_supp_carte->text().toInt();
-       QMessageBox msgBox;
-       bool test=F1.supprimer_carte(id);
-       if(test)
-       {   msgBox.setText("Suppression avec succes.");
-        ui->tab_carte->setModel(F.afficher_carte());}
 
-       else
-                   msgBox.setText("Echec de supression");
-                   msgBox.exec();
+void MainWindow::on_refresh_clicked()
+{
+    refresh();
+}
+
+void MainWindow::refresh(){
+
+    ui->comboBox_4->setModel(tmpabonnee.afficher_combobox());
+    ui->comboBox_3->setModel(tmpabonnee.afficher_combobox());
+
+
+    ui->tababonne->setModel(tmpabonnee.afficher());
+
+    ui->comboBox_ida->setModel(tmpabonnee.afficher_combobox());
+
+    ui->comboBox_ida_2->setModel(tmpabonnee.afficher_combobox());
 }

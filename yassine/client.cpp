@@ -3,118 +3,177 @@
 #include <QDebug>
 #include <QObject>
 #include <QSqlQueryModel>
+#include <QDate>
+#include <QString>
+#include <QDebug>
+#include<QPrinter>
+#include<QFileDialog>
+#include<QTextDocument>
 
-#include "carte_fid.h"
+
 
 CLIENT::CLIENT()
 {
-id=0; nom=""; prenom=""; email=""; numero=0;
+cin=0; nom=""; prenom=""; mail=""; tel=0;
 }
 
-CLIENT::CLIENT(int id, QString nom, QString prenom, QString email, long numero)
+CLIENT::CLIENT(int cin, QString nom, QString prenom, QString mail, long tel)
 {
-this->id=id;
+this->cin=cin;
 this->nom=nom;
 this->prenom=prenom;
-this->email=email;
-this->numero=numero;
+this->mail=mail;
+this->tel=tel;
 }
 
-int CLIENT::getid(){return id;}
-QString CLIENT::getnom(){return nom;}
-QString CLIENT::getprenom(){return prenom;}
-QString CLIENT::getemail(){return email;}
-long CLIENT::getnumero(){return numero;}
-void CLIENT::setid(int id){this->id=id;}
-void CLIENT::setnom(QString nom){this->nom=nom;}
-void CLIENT::setprenom(QString prenom){this->prenom=prenom;}
-void CLIENT::setemail(QString email){this->email=email;}
-void CLIENT::setnumero(long numero){this->numero=numero;}
+int CLIENT:: get_cin(){return cin; }
 
-
-bool CLIENT::ajouter()
+bool CLIENT:: ajouter()
 {
     QSqlQuery query;
-    QString id_string=QString::number(id);
-    QString numero_string=QString::number(numero);
+
+    QString cin_string=QString::number(cin);
+    QString tel_string=QString::number(tel);
 
 
-        query.prepare("INSERT INTO CLIENT (id, nom, prenom,email,numero) "
-                  "VALUES (:id, :nom, :prenom, :email, :numero)");
-        query.bindValue(":id", id_string);
+        query.prepare("INSERT INTO CLIENT (cin, nom, prenom,mail,tel) "
+                  "VALUES (:cin, :nom, :prenom, :mail, :tel)");
+        query.bindValue(":cin", cin_string);
         query.bindValue(":nom", nom);
         query.bindValue(":prenom", prenom);
-        query.bindValue(":email", email);
-        query.bindValue(":numero", numero_string);
+        query.bindValue(":mail", mail);
+        query.bindValue(":tel", tel_string);
 
-        return query.exec();
+    return    query.exec();
 }
 
-
-bool CLIENT::supprimer(int id)
-{
-
-    QSqlQueryModel * model= new QSqlQueryModel();
-
-    model->setQuery("select * from CLIENT");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
-QSqlQuery query;
-query.prepare("Delete from CLIENT where id = :id ");
-query.bindValue(":id", id);
-return    query.exec();
-
-}
-
-
-QSqlQueryModel* CLIENT::afficher()
-{
-    QSqlQueryModel* model=new QSqlQueryModel();
-        model->setQuery("SELECT * FROM CLIENT");
-        model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
-        model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-        model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
-        model->setHeaderData(3, Qt::Horizontal, QObject::tr("Numero telephone"));
-        model->setHeaderData(4, Qt::Horizontal, QObject::tr("Email"));
-
-        return model;
-}
-
-bool CLIENT::modifier(int id,QString nom,QString prenom,QString email,long numero){
-    QSqlQuery query;
-    QString id_string=QString::number(id);
-    QString numero_string=QString::number(numero);
-
-    query.prepare("update CLIENT set nom=:nom ,prenom=:prenom,email=:email,numero=:numero  where id = :id");
-    query.bindValue(":id", id_string);
-    query.bindValue(":nom", nom);
-    query.bindValue(":prenom", prenom);
-    query.bindValue(":email", email);
-    query.bindValue(":numero", numero_string);
-
-    return query.exec();
-}
-
-bool CLIENT::rech(int id){
-    QSqlQuery query;
-    QString id_string=QString::number(id);
-    QString numero_string=QString::number(numero);
-
-    query.prepare("select * from CLIENT where id = :id");
-    query.bindValue(":id", id_string);
-    query.bindValue(":nom", nom);
-    query.bindValue(":prenom", prenom);
-    query.bindValue(":email", email);
-    query.bindValue(":numero", numero_string);
-
-
-    return query.exec();
-}
-
-QSqlQueryModel * CLIENT::afficherclientchercher()
+QSqlQueryModel *CLIENT::afficher()
 {
     QSqlQueryModel * model= new QSqlQueryModel();
-    model->setQuery("select * from CLIENT where id= :id");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
+
+    model->setQuery("select * from CLIENT   ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Email"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero telephone"));
+
+
+
+    return model;
+}
+
+
+QSqlQueryModel *CLIENT::afficher_combobox()
+{QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("select CIN from CLIENT   ");
+    return model;
+}
+
+QSqlQueryModel *CLIENT::afficher_mail()
+{QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("select MAIL from CLIENT   ");
+    return model;
+}
+bool CLIENT::supprimer(int cin)
+{
+    QSqlQuery query;
+    QString res = QString:: number(cin);
+    query.prepare("Delete from CLIENT where CIN = :cin ");
+    query.bindValue(":cin", res);
+    return    query.exec();
+}
+
+bool CLIENT:: modifier(int cin ,QString nom, QString prenom ,QString mail,long tel )
+{QSqlQuery query;
+
+    QString cin_string=QString::number(cin);
+    QString tel_string=QString::number(tel);
+
+    query.prepare("UPDATE CLIENT set CIN=:cin,NOM=:nom ,PRENOM=:prenom ,MAIL=:mail, TEL=:tel where CIN= :cin ");
+    query.bindValue(":cin", cin_string);
+    query.bindValue(":nom", nom);
+    query.bindValue(":prenom", prenom);
+    query.bindValue(":mail", mail);
+    query.bindValue(":tel", tel_string);
+
+    return    query.exec();
+
+}
+
+
+QSqlQueryModel * CLIENT::rechercher(int cin)
+{
+
+    QSqlQueryModel *model=new QSqlQueryModel();
+    QSqlQuery query;
+    query.prepare("Select * from CLIENT where CIN =:cin");
+    query.bindValue(":cin",cin);
+    query.exec();
+    model->setQuery(query);
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
+
+    return model;
+}
+
+
+QSqlQueryModel * CLIENT::afficher_tri_cin()
+{QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("select * from CLIENT order by CIN desc ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Email"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero telephone"));
+    return model;
+}
+QSqlQueryModel * CLIENT::afficher_trinom()
+{QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("select * from CLIENT order by NOM desc ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Email"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero telephone"));
+    return model;
+}
+QSqlQueryModel * CLIENT::afficher_triprenom()
+{QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("select * from CLIENT order by PRENOM desc ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Email"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero telephone"));
+    return model;
+}
+
+bool CLIENT::testmail(QString mail){
+    int test=0;
+    for(int i = 0; i < mail.size(); i++) {
+        if(mail[i]=="@")
+        {test++;
+
+        }}
+    for(int i = 0; i < mail.size(); i++) {
+        if((test==1)&&(mail[i]=="."))
+        {if(mail.size()>i+1)
+                return true;
+        }}
+    return false;}
+
+
+QSqlQueryModel *CLIENT::displayClause(QString cls)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("SELECT * FROM CLIENT " +cls);
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Email"));
@@ -123,36 +182,4 @@ QSqlQueryModel * CLIENT::afficherclientchercher()
 
     return model;
 }
-
-QSqlQueryModel * CLIENT::trier_id()
-{
-    QSqlQueryModel * model= new QSqlQueryModel();
-    model->setQuery("select * from CLIENT ORDER BY id");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Email"));
-    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero telephone"));
-
-
-        return model;
-}
-
-
-QSqlQueryModel * CLIENT::afficherC()
-{
-
-    QSqlQueryModel * model= new QSqlQueryModel();
-
-    model->setQuery("select CLIENT.CIN,ClIENT.NOM,ClIENT.PRENOM,CARTE_FID.TYPE,CARTE_FID.PT,ClIENT.NUMERO from CLIENT inner JOIN CARTE_FID ON CLIENT.ID = CARTE_FID.ID_CLIENT");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Type carte fidelite"));
-    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Nombre points fidelite"));
-    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Numero telephone"));
-
-        return model;
-}
-
 

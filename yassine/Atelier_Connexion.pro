@@ -8,6 +8,9 @@ QT += sql
 QT       += core gui sql
 QT += network
 CONFIG += console
+QT += printsupport
+QT += multimedia
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Atelier_Connexion
@@ -40,6 +43,7 @@ HEADERS += \
     connection.h
 
 FORMS += \
+        dialog.ui \
         mainwindow.ui
 
 # Default rules for deployment.
