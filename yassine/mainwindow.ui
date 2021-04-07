@@ -6608,19 +6608,6 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QPushButton" name="traduction">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>290</y>
-          <width>75</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>traduction</string>
-        </property>
-       </widget>
       </widget>
       <widget class="QWidget" name="tab_35">
        <attribute name="title">

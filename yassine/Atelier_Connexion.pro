@@ -49,14 +49,15 @@ HEADERS += \
     client.h \
         mainwindow.h \
     connection.h \
+    nizar.h \
     notification.h \
     popup.h \
     qcustomplot.h \
     smtp.h
 
 FORMS += \
-        dialog.ui \
-        mainwindow.ui
+        mainwindow.ui \
+        nizar.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

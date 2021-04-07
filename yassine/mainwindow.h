@@ -41,6 +41,7 @@ public:
 private slots:
 
 
+
     //************************* client
     void refresh();
 
@@ -63,6 +64,8 @@ private slots:
     void on_radioButton_5_clicked();
 
     void on_radioButton_7_clicked();
+
+
 
     //*********************************
 
@@ -118,6 +121,7 @@ private:
     QByteArray image;
     QTimer * timerr ;
      QString text;
+
 };
 
 #endif // MAINWINDOW_H

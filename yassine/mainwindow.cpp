@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "ui_dialog.h"
 #include "client.h"
 #include <QString>
 #include <QIntValidator>
@@ -73,7 +74,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
 
-
     //     Positions initiale des boutons
 
 
@@ -85,6 +85,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->cinehome->setGeometry(60,490,131,71);
 
 
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/1.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
 
     //************************************************** Yassine
     ui->comboBox_4->setModel(tmpabonnee.afficher_combobox());
@@ -93,8 +101,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->comboBox_mail->setModel(tmpabonnee.afficher_mail());
 
     ui->comboBox_7->setModel(tmpabonnement.afficher());
+
     ui->tababonne->setModel(tmpabonnee.afficher());
     ui->tababonnement->setModel(tmpabonnement.afficher());
+
     ui->comboBox_ida->setModel(tmpabonnee.afficher_combobox());
     ui->comboBox_8->setModel(tmpabonnement.afficher());
 
@@ -341,6 +351,8 @@ void MainWindow::refresh(){
 
     ui->comboBox_ida_2->setModel(tmpabonnee.afficher_combobox());
 }
+
+
 
 
 //********************************************************
