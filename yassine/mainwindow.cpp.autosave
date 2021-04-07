@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "ui_dialog.h"
 #include "client.h"
 #include <QString>
 #include <QIntValidator>
@@ -93,8 +94,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->comboBox_mail->setModel(tmpabonnee.afficher_mail());
 
     ui->comboBox_7->setModel(tmpabonnement.afficher());
+    
     ui->tababonne->setModel(tmpabonnee.afficher());
     ui->tababonnement->setModel(tmpabonnement.afficher());
+    
     ui->comboBox_ida->setModel(tmpabonnee.afficher_combobox());
     ui->comboBox_8->setModel(tmpabonnement.afficher());
 
@@ -340,6 +343,11 @@ void MainWindow::refresh(){
     ui->comboBox_8->setModel(tmpabonnement.afficher());
 
     ui->comboBox_ida_2->setModel(tmpabonnee.afficher_combobox());
+}
+
+void MainWindow::on_traduction_clicked(){
+    
+    ui->ges->setCurrentIndex(0);
 }
 
 
