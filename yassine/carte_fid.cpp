@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QSqlQueryModel>
 
-#include "client.h"
 
 carte_fid::carte_fid()
 {
@@ -21,18 +20,12 @@ this->id_client=id_client;
 }
 
 int carte_fid::getid(){return id;}
-QString carte_fid::gettype(){return type;}
-int carte_fid::getpt(){return pt;}
-int carte_fid::getid_client(){return id_client;}
-
-void carte_fid::setid(int id){this->id=id;}
-void carte_fid::settype(QString type){this->type=type;}
-void carte_fid::setpt(int pt){this->pt=pt;}
-void carte_fid::setid_client(int id_client){this->id_client=id_client;}
 
 
 
-bool carte_fid::ajouter_carte()
+
+
+bool carte_fid:: ajouter()
 {
     QSqlQuery query;
     QString id_string=QString::number(id);
@@ -47,93 +40,102 @@ bool carte_fid::ajouter_carte()
         query.bindValue(":pt", pt_string);
         query.bindValue(":id_client", id_client_string);
 
-        return query.exec();
+
+    return    query.exec();
+    }
+
+
+QSqlQueryModel *carte_fid::afficher()
+{QSqlQueryModel * model= new QSqlQueryModel();
+
+model->setQuery("select * from carte_fid  ");
+
+model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type de carte"));
+model->setHeaderData(2, Qt::Horizontal, QObject::tr("Nombre de points fidelites"));
+model->setHeaderData(3, Qt::Horizontal, QObject::tr("Identifiant du client"));
+
+    return model;
 }
 
 
-bool carte_fid::supprimer_carte(int id)
+bool carte_fid::supprimer(int id)
 {
-
-    QSqlQueryModel * model= new QSqlQueryModel();
-
-    model->setQuery("select * from carte_fid");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
-QSqlQuery query;
-query.prepare("Delete from carte_fid where id = :id ");
-query.bindValue(":id", id);
-return    query.exec();
-
+    QSqlQuery query;
+    QString res = QString:: number(id);
+    query.prepare("Delete from carte_fid where ID = :id ");
+    query.bindValue(":id", res);
+    return    query.exec();
 }
-
-
-QSqlQueryModel* carte_fid::afficher_carte()
+bool carte_fid:: modifier()
 {
-    QSqlQueryModel* model=new QSqlQueryModel();
-        model->setQuery("SELECT * FROM carte_fid");
-        model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
-        model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type de carte"));
-        model->setHeaderData(2, Qt::Horizontal, QObject::tr("Nombre de points fidelites"));
-        model->setHeaderData(3, Qt::Horizontal, QObject::tr("Identifiant du client"));
-
-
-        return model;
-}
-
-bool carte_fid::modifier_carte(int, QString, int, int) {
     QSqlQuery query;
     QString id_string=QString::number(id);
     QString pt_string=QString::number(pt);
-    QString id_client_string=QString::number(id_client);
+
 
     query.prepare("update carte_fid set id=:id ,type=:type,pt=:pt,id_client=:id_client  where id = :id");
     query.bindValue(":id", id_string);
     query.bindValue(":type", type);
     query.bindValue(":pt", pt_string);
-    query.bindValue(":id_client", id_client_string);
 
 
-    return query.exec();
+        return    query.exec();
+
 }
 
-bool carte_fid::rech_carte(int id){
+
+QSqlQueryModel * carte_fid::rechercher(int id)
+{
+
+    QSqlQueryModel *model=new QSqlQueryModel();
     QSqlQuery query;
-    QString id_string=QString::number(id);
-    QString pt_string=QString::number(pt);
-    QString id_client_string=QString::number(id_client);
+    query.prepare("Select * from carte_fid where ID =:id");
+    query.bindValue(":id",id);
+    query.exec();
+    model->setQuery(query);
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
 
-    query.prepare("select * from carte_fid where id = :id");
-    query.bindValue(":id", id_string);
-    query.bindValue(":type", type);
-    query.bindValue(":pt", pt_string);
-    query.bindValue(":id_client", id_client_string);
+        return model;
+   }
 
 
-    return query.exec();
-}
-
-QSqlQueryModel * carte_fid::affichercartechercher()
+QSqlQueryModel * carte_fid::afficher_tri_id_carte()
 {
     QSqlQueryModel * model= new QSqlQueryModel();
-    model->setQuery("select * from carte_fid where id= :id");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type de carte"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Nombre de points fidelites"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Identifiant du client"));
+
+model->setQuery("select * from carte_fid order by ID asc ");
+
+model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type de carte"));
+model->setHeaderData(2, Qt::Horizontal, QObject::tr("Nombre de points fidelites"));
+model->setHeaderData(3, Qt::Horizontal, QObject::tr("Identifiant du client"));
 
 
     return model;
 }
 
-QSqlQueryModel * carte_fid::trier_type()
+
+
+QSqlQueryModel *carte_fid::displayClause(QString cls)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("SELECT * FROM carte_fid " +cls);
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type de carte"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Nombre de points fidelites"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Identifiant du client"));
+    return model;
+}
 
+QSqlQueryModel * carte_fid::afficher_fidele()
+{QSqlQueryModel * model= new QSqlQueryModel();
 
-        return model;
+model->setQuery("SELECT id_client,COUNT(id_client) FROM carte_fid GROUP BY  id_client ORDER BY COUNT(id_client) DESC ");
+model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID Client"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nombre de carte fidelite"));
+return model;
 }
 
 

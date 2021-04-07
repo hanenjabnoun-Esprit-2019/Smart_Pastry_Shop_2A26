@@ -34,13 +34,17 @@ SOURCES += \
     client.cpp \
         main.cpp \
         mainwindow.cpp \
-    connection.cpp
+    connection.cpp \
+    notification.cpp \
+    smtp.cpp
 
 HEADERS += \
     carte_fid.h \
     client.h \
         mainwindow.h \
-    connection.h
+    connection.h \
+    notification.h \
+    smtp.h
 
 FORMS += \
         dialog.ui \

@@ -8,7 +8,8 @@
 
 #include "carte_fid.h"
 
-
+#include "smtp.h"
+#include<cstdlib>
 
 #include <QPdfWriter>
 #include <QPainter>
@@ -45,34 +46,16 @@
 #include <QtSql/QSqlQueryModel>
 #include <QtSql/QSqlQuery>
 #include <QVariant>
-
 #include <QApplication>
 #include <QtCore>
-
 #include <QPdfWriter>
 #include <QPainter>
-//---------
-#include<QtPrintSupport/QPrinter>
-#include <QVector2D>
-#include <QVector>
-#include <QTextEdit>
-#include <QMessageBox>
-#include<QPdfWriter>
-#include <QPainter>
-#include <QSqlQuery>
-#include<QPainter>
-#include<QDesktopServices>
-#include<QPdfWriter>
-#include <QMessageBox>
-#include<QUrl>
-#include<QFileDialog>
-#include <QPixmap>
-#include <QTabWidget>
-#include <QtSql/QSqlQueryModel>
-#include<QtSql/QSqlQuery>
-#include<QVariant>
 #include <QSharedPointer>
 #include <QPaintEvent>
+#include <QPixmap>
+
+#include <QProgressBar>
+#include <QStatusBar>
 
 
 
@@ -97,12 +80,18 @@ MainWindow::MainWindow(QWidget *parent)
     //************************************************** Yassine
     ui->comboBox_4->setModel(tmpabonnee.afficher_combobox());
     ui->comboBox_3->setModel(tmpabonnee.afficher_combobox());
+    ui->comboBox_mail->setModel(tmpabonnee.afficher_mail());
+    ui->comboBox_mail->setModel(tmpabonnee.afficher_mail());
 
-
-
+    ui->comboBox_7->setModel(tmpabonnement.afficher());
     ui->tababonne->setModel(tmpabonnee.afficher());
+    ui->tababonnement->setModel(tmpabonnement.afficher());
     ui->comboBox_ida->setModel(tmpabonnee.afficher_combobox());
+    ui->comboBox_8->setModel(tmpabonnement.afficher());
+
     ui->comboBox_ida_2->setModel(tmpabonnee.afficher_combobox());
+
+
 
     //********************************************************
 
@@ -117,7 +106,7 @@ MainWindow::~MainWindow()
 }
 
 
-//******************************* ABONNEMENT ***************** Yassine
+//******************************* client *****************
 
 
 
@@ -138,7 +127,7 @@ void MainWindow::on_pb_ajouter_abonne_clicked()
     }else
     {
         CLIENT a(cin,nom,prenom,mail,tel);
-
+        N.notification_ajoutAbonne();
         test=a.ajouter();}
     if(test)
     {
@@ -167,7 +156,7 @@ void MainWindow::on_pb_supprimer_abonne_clicked()
     switch (ret) {
     case QMessageBox::Ok:
         if (tmpabonnee.supprimer(res)){
-
+            N.notification_supprimerAbonne();
             refresh();
         }else
         {
@@ -201,7 +190,7 @@ void MainWindow::on_pb_modifier_abonne_clicked()
     }else
     {
         bool test=tmpabonnee.modifier(cin,nom,prenom,mail,tel);
-
+        N.notification_modifierAbonne();
         if (test)
         {   refresh();
             QMessageBox::information(nullptr, QObject::tr("Modifier un abonne"),
@@ -265,9 +254,9 @@ void MainWindow::on_pdf_clicked()
     painter.drawRect(0,3000,9600,500);
     painter.setFont(QFont("Arial", 9));
     painter.drawText(300,3300,"CIN");
-    painter.drawText(2300,3300,"NOM");
-    painter.drawText(4300,3300,"PRENOM");
-    painter.drawText(6300,3300,"EMAIL");
+    painter.drawText(1800,3300,"NOM");
+    painter.drawText(3800,3300,"PRENOM");
+    painter.drawText(5800,3300,"EMAIL");
     painter.drawText(8000,3300,"TELEPHONE");
 
     QSqlQuery query;
@@ -326,11 +315,222 @@ void MainWindow::refresh(){
 
     ui->comboBox_4->setModel(tmpabonnee.afficher_combobox());
     ui->comboBox_3->setModel(tmpabonnee.afficher_combobox());
+    ui->comboBox_mail->setModel(tmpabonnee.afficher_mail());
+    ui->comboBox_mail->setModel(tmpabonnee.afficher_mail());
 
-
+    ui->comboBox_7->setModel(tmpabonnement.afficher());
     ui->tababonne->setModel(tmpabonnee.afficher());
-
+    ui->tababonnement->setModel(tmpabonnement.afficher());
     ui->comboBox_ida->setModel(tmpabonnee.afficher_combobox());
+    ui->comboBox_8->setModel(tmpabonnement.afficher());
 
     ui->comboBox_ida_2->setModel(tmpabonnee.afficher_combobox());
 }
+
+
+//********************************************************
+
+
+
+
+//*************************** carte fidelite *****************
+
+
+void MainWindow::on_pb_ajouter_abonnement_clicked()
+{
+    bool test;
+    int id= ui->lineEdit_id_abonnement->text().toInt();
+    QString type=ui ->lineEdit_type_abonnement->text();
+    int pt=ui->lineEdit_pt->text().toInt();
+    int id_client=ui->comboBox_ida->currentText().toInt();
+
+    if(ui->lineEdit_id_abonnement->text().isEmpty()||ui ->lineEdit_type_abonnement->text().isEmpty())
+    {
+        QMessageBox::critical(nullptr, QObject::tr("vide"),
+                              QObject::tr("veuillez saisir tous les champs correctement!\n"), QMessageBox::Cancel);
+        test=false;
+    }else
+    {
+        carte_fid ab (id,type,pt,id_client);
+        test=ab.ajouter();}
+    if(test)
+    {
+        N.notification_ajoutAbonnement();
+        refresh();
+        QMessageBox::information(nullptr, QObject::tr("Ajouter un carte fidelite"),
+                                 QObject::tr("carte fidelite ajouté.\n"
+                                             "Click Cancel to exit."), QMessageBox::Cancel);
+    }else
+        QMessageBox::critical(nullptr, QObject::tr("Ajouter un carte fidelite"),
+                              QObject::tr("Erreur !.\n"
+                                          "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_radioButton_3_clicked()
+{
+    ui->tababonnement->setModel( tmpabonnement.afficher_tri_id_carte());
+}
+
+void MainWindow::on_pb_supprimer_abonnement_clicked()
+{
+    int res=ui->comboBox_8->currentText().toInt();
+
+    QString str = " Vous voulez vraiment supprimer \n l' carte fidelite :";
+    int ret = QMessageBox::question(this, tr("carte fidelite"),str,QMessageBox::Ok|QMessageBox::Cancel);
+
+    switch (ret) {
+    case QMessageBox::Ok:
+        if (tmpabonnement.supprimer(res)){
+            N.notification_supprimerAbonnement();
+            refresh();
+
+        }else
+        {
+            QMessageBox::critical(0, qApp->tr("Suppression"),
+                                  qApp->tr("carte fidelite non trouvé "), QMessageBox::Cancel);
+        }
+        break;
+    case QMessageBox::Cancel:
+        break;
+    default:
+        // should never be reached
+        break;
+    }
+}
+
+void MainWindow::on_pb_modifier_abonnement_clicked()
+{
+    int id= ui->comboBox_7->currentText().toInt();
+    QString type= ui->lineEdit_typemodif->text();
+    int pt= ui->lineEdit_pt_2->text().toInt();
+    int id_client= ui->comboBox_ida_2->currentText().toInt();
+
+
+    carte_fid ab(id,type,pt,id_client);
+
+    bool test=ab.modifier();
+    if (test)
+    {   refresh();
+        N.notification_modifierAbonnement();
+        QMessageBox::information(nullptr, QObject::tr("Modifier un carte fidelite"),
+                                 QObject::tr("carte fidelite modifié.\n"
+                                             "Click Cancel to exit."), QMessageBox::Cancel);
+    }else
+        QMessageBox::critical(nullptr, QObject::tr("Modifier un carte fidelite"),
+                              QObject::tr("Erreur !.\n"
+                                          "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+
+
+
+void MainWindow::on_comboBox_7_activated()
+{
+    int id= ui->comboBox_7->currentText().toInt();
+    QString res = QString:: number(id);
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM carte_fid WHERE ID=:id");
+    query.bindValue(":id", res);
+    if(query.exec())
+    {
+        while(query.next())
+        {
+
+            ui->lineEdit_pt_2->setText(query.value(4).toString());
+            ui->comboBox_7->setModel(tmpabonnement.afficher());
+        }
+    }
+}
+
+
+
+
+
+void MainWindow::mailSent(QString status)
+{
+    if(status == "Message sent")
+        N.mail_Abonnement();
+}
+
+void MainWindow::on_pb_ajouter_7_clicked()
+{
+    Smtp* smtp = new Smtp("atou26.ag@gmail.com","OTOM","smtp.gmail.com",465);
+    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+    smtp->sendMail("atou26.ag@gmail.com",ui->comboBox_mail->currentText(),ui->subject->text(),ui->msg->toPlainText());
+}
+
+
+
+void MainWindow::on_radioButton_6_clicked()
+{
+    ui->tababonne->setModel( tmpabonnee.afficher_triprenom());
+}
+
+void MainWindow::on_radioButton_4_clicked()
+{
+    ui->tababonnement->setModel( tmpabonnement.afficher_fidele());
+}
+
+void MainWindow::on_rechercher_abonnement_textChanged()
+{
+    if(ui->rechercher_abonnement->text()!="")
+    {        QString b=ui->combo_rech_abonne_2->currentText();
+        QString a=ui->rechercher_abonnement->text();
+        ui->tababonnement->setModel(tmpabonnement.displayClause("WHERE ("+b+" LIKE '%"+a+"%')"));
+    }else
+        ui->tababonnement->setModel(tmpabonnement.afficher());
+}
+
+void MainWindow::on_refresh_2_clicked()
+{
+    refresh();
+}
+
+void MainWindow::on_pdf_2_clicked()
+{
+    QPdfWriter pdf("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/PdfCarteFidelite.pdf");
+    QPainter painter(&pdf);
+    int i = 4000;
+    painter.setPen(Qt::blue);
+    painter.setFont(QFont("Arial", 30));
+    painter.drawText(2300,1200,"Liste Des Cartes Fidelite");
+    painter.setPen(Qt::black);
+    painter.setFont(QFont("Arial", 50));
+    // painter.drawText(1100,2000,afficheDC);
+    painter.drawRect(1500,200,7300,2600);
+    //painter.drawPixmap(QRect(7600,70,2000,2600),QPixmap("C:/Users/RH/Desktop/projecpp/image/logopdf.png"));
+    painter.drawRect(0,3000,9600,500);
+    painter.setFont(QFont("Arial", 9));
+    painter.drawText(300,3300,"ID CARTE");
+    painter.drawText(2800,3300,"TYPE CARTE");
+    painter.drawText(5300,3300,"POINTS FIDELITE");
+    painter.drawText(7800,3300,"ID CLIENT");
+
+
+    QSqlQuery query;
+    query.prepare("select * from carte_fid");
+    query.exec();
+    while (query.next())
+    {
+        painter.drawText(300,i,query.value(0).toString());
+        painter.drawText(2800,i,query.value(1).toString());
+        painter.drawText(5300,i,query.value(2).toString());
+        painter.drawText(7800,i,query.value(3).toString());
+
+        i = i +500;
+    }
+    int reponse = QMessageBox::question(this, "Génerer PDF", "<PDF Enregistré>...Vous Voulez Affichez Le PDF ?", QMessageBox::Yes |  QMessageBox::No);
+    if (reponse == QMessageBox::Yes)
+    {
+        QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/PdfCarteFidelite.pdf"));
+
+        painter.end();
+    }
+    if (reponse == QMessageBox::No)
+    {
+        painter.end();
+    }
+}
+
+//********************************************************

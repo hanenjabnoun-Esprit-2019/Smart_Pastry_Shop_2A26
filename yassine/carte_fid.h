@@ -19,16 +19,19 @@ public:
     void setpt(int);
     void setid_client(int);
 
-    bool ajouter_carte();
-    QSqlQueryModel* afficher_carte();
 
 
-    bool supprimer_carte(int);
+    bool ajouter();
+    QSqlQueryModel * afficher();
+    bool supprimer(int);
+    bool modifier();
+    QSqlQueryModel * rechercher(int );
 
-    bool modifier_carte(int,QString,int,int);
-     bool rech_carte(int);
-     QSqlQueryModel * affichercartechercher();
-     QSqlQueryModel * trier_type();
+
+    QSqlQueryModel * afficher_tri_id_carte();
+
+    QSqlQueryModel *displayClause(QString cls);
+    QSqlQueryModel * afficher_fidele();
 
 private:
     int id;
