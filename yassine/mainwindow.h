@@ -4,6 +4,8 @@
 #include "client.h"
 #include "carte_fid.h"
 #include "notification.h"
+#include "popup.h"
+
 #include <QMediaPlayer>
 
 #include <QDialog>
@@ -15,7 +17,7 @@
 #include<QDesktopServices>
 #include<QUrl>
 #include<QSqlTableModel>
-
+#include <QChartView>
 
 
 
@@ -60,6 +62,8 @@ private slots:
 
     void on_radioButton_5_clicked();
 
+    void on_radioButton_7_clicked();
+
     //*********************************
 
 
@@ -91,6 +95,10 @@ private slots:
     void on_pdf_2_clicked();
 
 
+
+    bool testmail(QString);
+
+
     //*********************************
 
 
@@ -101,6 +109,15 @@ private:
     CLIENT tmpabonnee;
     carte_fid tmpabonnement;
     Notification N;
+    popup *popUp;
+    QPixmap PixTrueIcon;
+    QPixmap PixFalseIcon;
+    QPixmap photo ;
+    QString fileNameImage ;
+    QString fileNameImage2 ;
+    QByteArray image;
+    QTimer * timerr ;
+     QString text;
 };
 
 #endif // MAINWINDOW_H

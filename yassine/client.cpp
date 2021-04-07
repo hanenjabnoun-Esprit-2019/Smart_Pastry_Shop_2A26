@@ -139,6 +139,7 @@ QSqlQueryModel * CLIENT::afficher_trinom()
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Email"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Numero telephone"));
+
     return model;
 }
 QSqlQueryModel * CLIENT::afficher_triprenom()

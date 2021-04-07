@@ -115,6 +115,21 @@ model->setHeaderData(3, Qt::Horizontal, QObject::tr("Identifiant du client"));
     return model;
 }
 
+QSqlQueryModel * carte_fid::afficher_tri_pt()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+model->setQuery("select * from carte_fid order by pt asc ");
+
+model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type de carte"));
+model->setHeaderData(2, Qt::Horizontal, QObject::tr("Nombre de points fidelites"));
+model->setHeaderData(3, Qt::Horizontal, QObject::tr("Identifiant du client"));
+
+
+    return model;
+}
+
 
 
 QSqlQueryModel *carte_fid::displayClause(QString cls)

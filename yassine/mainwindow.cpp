@@ -6,6 +6,13 @@
 #include <QMessageBox>
 #include <QDebug>
 
+#include <QChartView>
+#include <QPieSlice>
+#include <QPieSeries>
+#include <QChart>
+
+#include <QStatusBar>
+
 #include "carte_fid.h"
 
 #include "smtp.h"
@@ -58,7 +65,6 @@
 #include <QStatusBar>
 
 
-
 MainWindow::MainWindow(QWidget *parent)
    : QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -68,12 +74,14 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     //     Positions initiale des boutons
-    ui->billetterie->setGeometry(60,160,131,71);
-    ui->stock->setGeometry(60,220,131,71);
-    ui->abonnement->setGeometry(60,280,131,71);
-    ui->materiel->setGeometry(60,340,131,71);
-    ui->salaries->setGeometry(60,400,131,71);
-    ui->cinehome->setGeometry(60,460,131,71);
+
+
+    ui->billetterie->setGeometry(60,190,131,71);
+    ui->stock->setGeometry(60,250,131,71);
+    ui->abonnement->setGeometry(60,310,131,71);
+    ui->materiel->setGeometry(60,370,131,71);
+    ui->salaries->setGeometry(60,430,131,71);
+    ui->cinehome->setGeometry(60,490,131,71);
 
 
 
@@ -95,7 +103,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     //********************************************************
 
-
+    PixTrueIcon=QPixmap(":/images/True_icon.png");
+    PixFalseIcon=QPixmap(":/images/False_icon.png");
 
 
 }
@@ -305,6 +314,11 @@ void MainWindow::on_radioButton_5_clicked()
     ui->tababonne->setModel( tmpabonnee.afficher_trinom());
 }
 
+void MainWindow::on_radioButton_7_clicked()
+{
+    ui->tababonne->setModel( tmpabonnee.afficher_triprenom());
+}
+
 
 void MainWindow::on_refresh_clicked()
 {
@@ -460,11 +474,23 @@ void MainWindow::on_pb_ajouter_7_clicked()
     smtp->sendMail("atou26.ag@gmail.com",ui->comboBox_mail->currentText(),ui->subject->text(),ui->msg->toPlainText());
 }
 
+bool MainWindow::testmail(QString mail){
+    int test=0;
+    for(int i = 0; i < mail.size(); i++) {
+if(mail[i]=="@")
+    test++;
+    }
+    for(int i = 0; i < mail.size(); i++) {
+if((test==1)&&(mail[i]=="."))
+        return true;
+    }
+return false;}
+
 
 
 void MainWindow::on_radioButton_6_clicked()
 {
-    ui->tababonne->setModel( tmpabonnee.afficher_triprenom());
+    ui->tababonne->setModel( tmpabonnement.afficher_tri_pt());
 }
 
 void MainWindow::on_radioButton_4_clicked()
@@ -532,5 +558,6 @@ void MainWindow::on_pdf_2_clicked()
         painter.end();
     }
 }
+
 
 //********************************************************

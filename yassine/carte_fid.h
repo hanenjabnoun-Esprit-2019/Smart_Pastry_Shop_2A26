@@ -29,6 +29,7 @@ public:
 
 
     QSqlQueryModel * afficher_tri_id_carte();
+    QSqlQueryModel * afficher_tri_pt();
 
     QSqlQueryModel *displayClause(QString cls);
     QSqlQueryModel * afficher_fidele();
