@@ -74,6 +74,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
 
+
+
     //     Positions initiale des boutons
 
 
@@ -82,7 +84,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->abonnement->setGeometry(60,310,131,71);
     ui->materiel->setGeometry(60,370,131,71);
     ui->salaries->setGeometry(60,430,131,71);
-    ui->cinehome->setGeometry(60,490,131,71);
+
 
 
     QMediaPlayer * bulletsound = new QMediaPlayer();
@@ -132,6 +134,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pb_ajouter_abonne_clicked()
 {
+
     bool test;
     int cin= ui->lineEdit_cin->text().toInt();
     QString nom= ui->lineEdit_nom->text();
@@ -141,6 +144,14 @@ void MainWindow::on_pb_ajouter_abonne_clicked()
 
     if(nom==""|| prenom==""|| cin==0||cin>99999999||nom.length()>10||tel==0||tel>99999999||tel<10000000)
     {
+        QMediaPlayer * bulletsound = new QMediaPlayer();
+               bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/3.mp3"));
+              if (bulletsound->state() == QMediaPlayer::PlayingState){
+                   bulletsound->setPosition(0);
+               }
+               else if (bulletsound->state() == QMediaPlayer::StoppedState){
+                   bulletsound->play();
+               }
         QMessageBox::critical(nullptr, QObject::tr("vide"),
                               QObject::tr("veuillez saisir tous les champs correctement!\n"), QMessageBox::Cancel);
         test=false;
@@ -151,23 +162,49 @@ void MainWindow::on_pb_ajouter_abonne_clicked()
         test=a.ajouter();}
     if(test)
     {
+        QMediaPlayer * bulletsound = new QMediaPlayer();
+               bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+              if (bulletsound->state() == QMediaPlayer::PlayingState){
+                   bulletsound->setPosition(0);
+               }
+               else if (bulletsound->state() == QMediaPlayer::StoppedState){
+                   bulletsound->play();
+               }
         refresh();
         QMessageBox::information(nullptr, QObject::tr("Ajouter un abonnee"),
                                  QObject::tr("abonnee ajouté.\n"
                                              "Click Cancel to exit."), QMessageBox::Cancel);
-    }else
-        QMessageBox::critical(nullptr, QObject::tr("Ajouter un abonnee"),
+    }
+    else
+    QMessageBox::critical(nullptr, QObject::tr("Ajouter un abonnee"),
                               QObject::tr("Erreur !.\n"
                                           "Click Cancel to exit."), QMessageBox::Cancel);
+
 }
 
 void MainWindow::on_radioButton_clicked()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     ui->tababonne->setModel( tmpabonnee.afficher_tri_cin());
 }
 
 void MainWindow::on_pb_supprimer_abonne_clicked()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     int res=ui->comboBox_3->currentText().toInt();
 
     QString str = " Vous voulez vraiment supprimer \n l'abonne :";
@@ -196,6 +233,7 @@ void MainWindow::on_pb_supprimer_abonne_clicked()
 
 void MainWindow::on_pb_modifier_abonne_clicked()
 {
+
     int cin= ui->comboBox_4->currentText().toInt();
     QString nom=ui->lineEdit_modifier_nom->text();
     QString prenom=ui->lineEdit_modifier_prenom->text();
@@ -204,11 +242,27 @@ void MainWindow::on_pb_modifier_abonne_clicked()
 
     if(nom==""|| prenom==""|| cin==0||cin>99999999||nom.length()>10||tel==0||tel>99999999||tel<10000000)
     {
+        QMediaPlayer * bulletsound = new QMediaPlayer();
+               bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/3.mp3"));
+              if (bulletsound->state() == QMediaPlayer::PlayingState){
+                   bulletsound->setPosition(0);
+               }
+               else if (bulletsound->state() == QMediaPlayer::StoppedState){
+                   bulletsound->play();
+               }
         QMessageBox::critical(nullptr, QObject::tr("vide"),
                               QObject::tr("veuillez saisir tous les champs correctement!\n"), QMessageBox::Cancel);
 
     }else
     {
+        QMediaPlayer * bulletsound = new QMediaPlayer();
+               bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+              if (bulletsound->state() == QMediaPlayer::PlayingState){
+                   bulletsound->setPosition(0);
+               }
+               else if (bulletsound->state() == QMediaPlayer::StoppedState){
+                   bulletsound->play();
+               }
         bool test=tmpabonnee.modifier(cin,nom,prenom,mail,tel);
         N.notification_modifierAbonne();
         if (test)
@@ -233,6 +287,14 @@ void MainWindow::on_pb_modifier_abonne_clicked()
 
 void MainWindow::on_comboBox_4_activated()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     int cin= ui->comboBox_4->currentText().toInt();
     QString res = QString:: number(cin);
 
@@ -260,6 +322,14 @@ void MainWindow::on_comboBox_4_activated()
 
 void MainWindow::on_pdf_clicked()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     QPdfWriter pdf("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/PdfClients.pdf");
     QPainter painter(&pdf);
     int i = 4000;
@@ -306,6 +376,7 @@ void MainWindow::on_pdf_clicked()
 
 void MainWindow::on_rechercher_abonne_textChanged()
 {
+
     if(ui->rechercher_abonne->text()!="")
     {
         QString b=ui->combo_rech_abonne->currentText();
@@ -322,17 +393,41 @@ void MainWindow::on_rechercher_abonne_textChanged()
 
 void MainWindow::on_radioButton_5_clicked()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     ui->tababonne->setModel( tmpabonnee.afficher_trinom());
 }
 
 void MainWindow::on_radioButton_7_clicked()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     ui->tababonne->setModel( tmpabonnee.afficher_triprenom());
 }
 
 
 void MainWindow::on_refresh_clicked()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     refresh();
 }
 
@@ -365,6 +460,7 @@ void MainWindow::refresh(){
 
 void MainWindow::on_pb_ajouter_abonnement_clicked()
 {
+
     bool test;
     int id= ui->lineEdit_id_abonnement->text().toInt();
     QString type=ui ->lineEdit_type_abonnement->text();
@@ -373,11 +469,27 @@ void MainWindow::on_pb_ajouter_abonnement_clicked()
 
     if(ui->lineEdit_id_abonnement->text().isEmpty()||ui ->lineEdit_type_abonnement->text().isEmpty())
     {
+        QMediaPlayer * bulletsound = new QMediaPlayer();
+               bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/3.mp3"));
+              if (bulletsound->state() == QMediaPlayer::PlayingState){
+                   bulletsound->setPosition(0);
+               }
+               else if (bulletsound->state() == QMediaPlayer::StoppedState){
+                   bulletsound->play();
+               }
         QMessageBox::critical(nullptr, QObject::tr("vide"),
                               QObject::tr("veuillez saisir tous les champs correctement!\n"), QMessageBox::Cancel);
         test=false;
     }else
     {
+        QMediaPlayer * bulletsound = new QMediaPlayer();
+               bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+              if (bulletsound->state() == QMediaPlayer::PlayingState){
+                   bulletsound->setPosition(0);
+               }
+               else if (bulletsound->state() == QMediaPlayer::StoppedState){
+                   bulletsound->play();
+               }
         carte_fid ab (id,type,pt,id_client);
         test=ab.ajouter();}
     if(test)
@@ -395,11 +507,27 @@ void MainWindow::on_pb_ajouter_abonnement_clicked()
 
 void MainWindow::on_radioButton_3_clicked()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     ui->tababonnement->setModel( tmpabonnement.afficher_tri_id_carte());
 }
 
 void MainWindow::on_pb_supprimer_abonnement_clicked()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     int res=ui->comboBox_8->currentText().toInt();
 
     QString str = " Vous voulez vraiment supprimer \n l' carte fidelite :";
@@ -427,6 +555,7 @@ void MainWindow::on_pb_supprimer_abonnement_clicked()
 
 void MainWindow::on_pb_modifier_abonnement_clicked()
 {
+
     int id= ui->comboBox_7->currentText().toInt();
     QString type= ui->lineEdit_typemodif->text();
     int pt= ui->lineEdit_pt_2->text().toInt();
@@ -437,15 +566,35 @@ void MainWindow::on_pb_modifier_abonnement_clicked()
 
     bool test=ab.modifier();
     if (test)
-    {   refresh();
+    {
+        QMediaPlayer * bulletsound = new QMediaPlayer();
+               bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+              if (bulletsound->state() == QMediaPlayer::PlayingState){
+                   bulletsound->setPosition(0);
+               }
+               else if (bulletsound->state() == QMediaPlayer::StoppedState){
+                   bulletsound->play();
+               }
+        refresh();
         N.notification_modifierAbonnement();
         QMessageBox::information(nullptr, QObject::tr("Modifier un carte fidelite"),
                                  QObject::tr("carte fidelite modifié.\n"
                                              "Click Cancel to exit."), QMessageBox::Cancel);
-    }else
+    }
+    else
+    {
+        QMediaPlayer * bulletsound = new QMediaPlayer();
+               bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/3.mp3"));
+              if (bulletsound->state() == QMediaPlayer::PlayingState){
+                   bulletsound->setPosition(0);
+               }
+               else if (bulletsound->state() == QMediaPlayer::StoppedState){
+                   bulletsound->play();
+               }
         QMessageBox::critical(nullptr, QObject::tr("Modifier un carte fidelite"),
                               QObject::tr("Erreur !.\n"
                                           "Click Cancel to exit."), QMessageBox::Cancel);
+    }
 }
 
 
@@ -453,24 +602,30 @@ void MainWindow::on_pb_modifier_abonnement_clicked()
 
 void MainWindow::on_comboBox_7_activated()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     int id= ui->comboBox_7->currentText().toInt();
     QString res = QString:: number(id);
 
     QSqlQuery query;
-    query.prepare("SELECT * FROM carte_fid WHERE ID=:id");
+    query.prepare("SELECT * FROM carte_fid WHERE id=:id");
     query.bindValue(":id", res);
     if(query.exec())
     {
         while(query.next())
         {
+            ui->lineEdit_typemodif->setText(query.value(1).toString());
+            ui->lineEdit_pt_2->setText(query.value(2).toString());
 
-            ui->lineEdit_pt_2->setText(query.value(4).toString());
-            ui->comboBox_7->setModel(tmpabonnement.afficher());
         }
     }
 }
-
-
 
 
 
@@ -482,7 +637,15 @@ void MainWindow::mailSent(QString status)
 
 void MainWindow::on_pb_ajouter_7_clicked()
 {
-    Smtp* smtp = new Smtp("atou26.ag@gmail.com","OTOM","smtp.gmail.com",465);
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
+    Smtp* smtp = new Smtp("atou26.ag@gmail.com","ibrahguota26","smtp.gmail.com",465);
     connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
     smtp->sendMail("atou26.ag@gmail.com",ui->comboBox_mail->currentText(),ui->subject->text(),ui->msg->toPlainText());
 }
@@ -503,11 +666,27 @@ return false;}
 
 void MainWindow::on_radioButton_6_clicked()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     ui->tababonne->setModel( tmpabonnement.afficher_tri_pt());
 }
 
 void MainWindow::on_radioButton_4_clicked()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     ui->tababonnement->setModel( tmpabonnement.afficher_fidele());
 }
 
@@ -523,11 +702,27 @@ void MainWindow::on_rechercher_abonnement_textChanged()
 
 void MainWindow::on_refresh_2_clicked()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     refresh();
 }
 
 void MainWindow::on_pdf_2_clicked()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+           bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/2.mp3"));
+          if (bulletsound->state() == QMediaPlayer::PlayingState){
+               bulletsound->setPosition(0);
+           }
+           else if (bulletsound->state() == QMediaPlayer::StoppedState){
+               bulletsound->play();
+           }
     QPdfWriter pdf("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/PdfCarteFidelite.pdf");
     QPainter painter(&pdf);
     int i = 4000;

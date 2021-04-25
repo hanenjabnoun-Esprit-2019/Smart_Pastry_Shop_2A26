@@ -7775,7 +7775,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
 }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <property name="iconSize">
        <size>
@@ -14544,40 +14544,11 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="cinehome">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>480</y>
-       <width>131</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-border-style:outset ; 
-border-width:0px ; 
-border-radius:0px; </string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="images.qrc">
-       <normaloff>:/images/bouton films.png</normaloff>:/images/bouton films.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>800</width>
-       <height>800</height>
-      </size>
-     </property>
-    </widget>
     <widget class="QPushButton" name="salaries">
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>420</y>
+       <y>440</y>
        <width>131</width>
        <height>71</height>
       </rect>
@@ -14592,8 +14563,8 @@ border-radius:0px; </string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="images.qrc">
-       <normaloff>:/images/bouton salaries.png</normaloff>:/images/bouton salaries.png</iconset>
+      <iconset>
+       <normaloff>images/boutton maintenance.png</normaloff>images/boutton maintenance.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -15084,7 +15055,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>360</y>
+       <y>380</y>
        <width>131</width>
        <height>71</height>
       </rect>
@@ -15099,8 +15070,8 @@ border-radius:0px; </string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="images.qrc">
-       <normaloff>:/images/bouton materiel.png</normaloff>:/images/bouton materiel.png</iconset>
+      <iconset>
+       <normaloff>images/boutton fournisseur.png</normaloff>images/boutton fournisseur.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -15113,7 +15084,7 @@ border-radius:0px; </string>
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>300</y>
+       <y>320</y>
        <width>131</width>
        <height>71</height>
       </rect>
@@ -15128,8 +15099,8 @@ border-radius:0px; </string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="images.qrc">
-       <normaloff>:/images/bouton abonnement.png</normaloff>:/images/bouton abonnement.png</iconset>
+      <iconset>
+       <normaloff>images/boutton employe.png</normaloff>images/boutton employe.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -15142,7 +15113,7 @@ border-radius:0px; </string>
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>240</y>
+       <y>260</y>
        <width>131</width>
        <height>71</height>
       </rect>
@@ -15157,8 +15128,8 @@ border-radius:0px; </string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="images.qrc">
-       <normaloff>:/images/bouton stock.png</normaloff>:/images/bouton stock.png</iconset>
+      <iconset>
+       <normaloff>images/boutton commande.png</normaloff>images/boutton commande.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -15171,7 +15142,7 @@ border-radius:0px; </string>
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>180</y>
+       <y>200</y>
        <width>131</width>
        <height>71</height>
       </rect>
@@ -15188,7 +15159,7 @@ border-radius:0px; </string>
      </property>
      <property name="icon">
       <iconset resource="images.qrc">
-       <normaloff>:/images/bouton billetterie.png</normaloff>:/images/bouton billetterie.png</iconset>
+       <normaloff>:/images/boutton client.png</normaloff>:/images/boutton client.png</iconset>
      </property>
      <property name="iconSize">
       <size>

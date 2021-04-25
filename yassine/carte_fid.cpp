@@ -72,13 +72,14 @@ bool carte_fid:: modifier()
     QSqlQuery query;
     QString id_string=QString::number(id);
     QString pt_string=QString::number(pt);
+    QString client_string=QString::number(id_client);
 
 
     query.prepare("update carte_fid set id=:id ,type=:type,pt=:pt,id_client=:id_client  where id = :id");
     query.bindValue(":id", id_string);
     query.bindValue(":type", type);
     query.bindValue(":pt", pt_string);
-
+    query.bindValue(":id_client", client_string);
 
         return    query.exec();
 
