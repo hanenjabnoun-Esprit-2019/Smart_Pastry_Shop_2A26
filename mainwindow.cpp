@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "ui_dialog.h"
 #include "client.h"
 #include <QString>
 #include <QIntValidator>

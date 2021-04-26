@@ -67,13 +67,13 @@ bool Deppartement::modifier(int id_dep)
     QSqlQuery query;
     QString id_string=QString::number(id_dep);
 
-        query.prepare("UPDATE departement SET specialite=:specialite,gerant=:gerant,localisation=:localisation WHERE (id_depp=:id)");
+    query.prepare("update departement set specialite=:specialite, gerant=:gerant, localisation=:localisation where id_depp=:id");
 
-        query.bindValue(0, id_string);
-        query.bindValue(1, specialite);
-        query.bindValue(2, gerant);
-        query.bindValue(3, localisation);
-        return query.exec();
+    query.bindValue(":id", id_string);
+    query.bindValue("specialite", specialite);
+    query.bindValue(":gerant", gerant);
+    query.bindValue(":localisation", localisation);
+            return query.exec();
 }
 
 
