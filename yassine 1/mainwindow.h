@@ -14,6 +14,8 @@
 #include "maintenance.h"
 #include "equipement.h"
 #include <QDialog>
+#include "fournisseur.h"
+#include "c_achat.h"
 
 #include<QTimer>
 
@@ -236,6 +238,54 @@ private slots:
 
         void on_refresh_clicked();*/
 
+        //*********************************
+
+        //*************** khalil ******************
+
+
+        void on_pushButton_10_kh_clicked();
+
+
+
+            void on_pushButton_kh_clicked();
+
+            void on_pushButton_5_kh_clicked();
+
+            void on_pushButton_4_kh_clicked();
+
+            void on_pushButton_6_kh_clicked();
+
+
+
+            void on_pushButton_2_kh_clicked();
+
+            void on_pushButton_13_kh_clicked();
+
+            void on_pushButton_9_kh_clicked();
+
+            void on_pushButton_8_kh_clicked();
+
+            void on_pushButton_14_kh_clicked();
+
+            void on_pushButton_15_kh_clicked();
+
+
+            void on_tableView_3_kh_clicked(const QModelIndex &index);
+
+            void on_tableView_4_kh_clicked(const QModelIndex &index);
+
+
+
+            void on_pushButton_3_kh_clicked();
+
+            void on_pushButton_7_kh_clicked();
+
+
+
+            void on_pdf_kh_clicked();
+
+            //*********************************
+
 private:
     Ui::MainWindow *ui;
 
@@ -257,6 +307,8 @@ private:
      commandev ss;
      equipement etemp;
          maintenance mtemp;
+         fournisseur ftemp;
+             c_achat ctemp;
 };
 
 #endif // MAINWINDOW_H

@@ -36,12 +36,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 CONFIG += openssl-linked
 SOURCES += \
+    c_achat.cpp \
     carte_fid.cpp \
     client.cpp \
     commandev.cpp \
     deppartement.cpp \
     employer.cpp \
     equipement.cpp \
+    fournisseur.cpp \
     hcommande.cpp \
         main.cpp \
     maintenance.cpp \
@@ -54,12 +56,14 @@ SOURCES += \
     smtp.cpp
 
 HEADERS += \
+    c_achat.h \
     carte_fid.h \
     client.h \
     commandev.h \
     deppartement.h \
     employer.h \
     equipement.h \
+    fournisseur.h \
     hcommande.h \
     maintenance.h \
         mainwindow.h \
