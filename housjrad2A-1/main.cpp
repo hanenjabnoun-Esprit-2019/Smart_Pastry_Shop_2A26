@@ -21,6 +21,8 @@ int main(int argc, char *argv[])
         else
         qDebug() <<"erreur de connection";
 
-    //w.show();
+   // w.show();
     return a.exec();
 }
+
+
