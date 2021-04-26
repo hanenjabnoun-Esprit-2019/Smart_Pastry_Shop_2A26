@@ -1,0 +1,61 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/123337811_363713021353921_3312416132025466282_n.png</file>
+        <file>images/accueil.png</file>
+        <file>images/affiche.jpg</file>
+        <file>images/ajouter.png</file>
+        <file>images/annuler.png</file>
+        <file>images/back 1.jpg</file>
+        <file>images/back 2.png</file>
+        <file>images/bib.jpg</file>
+        <file>images/billet.png</file>
+        <file>images/bouton abonnement.png</file>
+        <file>images/bouton billetterie.png</file>
+        <file>images/bouton films.png</file>
+        <file>images/bouton materiel.png</file>
+        <file>images/bouton salaries.png</file>
+        <file>images/bouton stock.png</file>
+        <file>images/calculatrice.png</file>
+        <file>images/chips.png</file>
+        <file>images/close.png</file>
+        <file>images/coca cola.png</file>
+        <file>images/crackers.png</file>
+        <file>images/deco.png</file>
+        <file>images/eau.png</file>
+        <file>images/employe.png</file>
+        <file>images/facebook_icon.png</file>
+        <file>images/False_icon.png</file>
+        <file>images/goldfish.png</file>
+        <file>images/icone buy.png</file>
+        <file>images/loupe.png</file>
+        <file>images/mail.png</file>
+        <file>images/maintenance.png</file>
+        <file>images/materiel.png</file>
+        <file>images/modifier salarie.png</file>
+        <file>images/modifier.png</file>
+        <file>images/nettoyer.png</file>
+        <file>images/logo.png</file>
+        <file>images/out of stock.png</file>
+        <file>images/papier mouchoir.png</file>
+        <file>images/parametres.png</file>
+        <file>images/pathe.png</file>
+        <file>images/pause.png</file>
+        <file>images/payer.png</file>
+        <file>images/play.png</file>
+        <file>images/pop corn.png</file>
+        <file>images/pringles.png</file>
+        <file>images/remove.png</file>
+        <file>images/retour.png</file>
+        <file>images/salariess.png</file>
+        <file>images/salles2.png</file>
+        <file>images/save.png</file>
+        <file>images/siege.png</file>
+        <file>images/stats.png</file>
+        <file>images/sweet potato.png</file>
+        <file>images/True_icon.png</file>
+        <file>images/twitter_icon.png</file>
+        <file>images/boutton client.png</file>
+        <file>images/stock.png</file>
+        <file>images/pastry.jpg</file>
+    </qresource>
+</RCC>

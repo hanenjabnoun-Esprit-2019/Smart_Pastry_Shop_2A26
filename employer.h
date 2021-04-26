@@ -3,34 +3,30 @@
 #include<QString>
 #include <QSqlQueryModel>
 
-
 class Employer
 {
 public:
     Employer();
-    Employer(int,QString,QString,float,long,int);
+    Employer(int,QString,QString,float,int,int);
     int getid();
     QString getnom();
     QString getprenom();
     float getsalaire();
-    long getnumero();
+    int getnumero();
     int getid_depp();
 
     void setid(int);
     void setnom(QString);
     void setprenom(QString);
     void setsalaire(float);
-    void setnumero(long);
+    void setnumero(int);
     void setid_depp(int);
     bool ajouter();
     QSqlQueryModel* afficher();
     bool supprimer(int);
-    bool modifier(int);
-    QSqlQueryModel* recherche(int);
-    QSqlQueryModel* trier();
+
 private:
-    int id,id_depp;
-    long numero;
+    int id,numero,id_depp;
     float salaire;
     QString nom,prenom;
 

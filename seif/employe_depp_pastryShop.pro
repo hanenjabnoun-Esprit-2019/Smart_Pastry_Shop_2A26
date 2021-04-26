@@ -27,16 +27,16 @@ SOURCES += \
     deppartement.cpp \
     employer.cpp \
     main.cpp \
-    seif.cpp
+    mainwindow.cpp
 
 HEADERS += \
     connection.h \
     deppartement.h \
     employer.h \
-    seif.h
+    mainwindow.h
 
 FORMS += \
-    seif.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
