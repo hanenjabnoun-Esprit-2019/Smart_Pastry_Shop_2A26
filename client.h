@@ -2,34 +2,47 @@
 #define CLIENT_H
 #include <QString>
 #include <QSqlQueryModel>
+#include <QSqlQuery>
+#include <QDate>
+#include "ui_mainwindow.h"
 
 class CLIENT
 {
 public:
     CLIENT();
-    CLIENT(int,QString,QString,QString,int);
+    CLIENT(int,QString,QString,QString,long);
 
-    int getid();
-    QString getnom();
-    QString getprenom();
-    QString getemail();
-    int getnumero();
-
-    void setid(int);
-    void setnom(QString);
-    void setprenom(QString);
-    void setemail(QString);
-    void setnumero(int);
+    int get_cin();
+    QString get_nom();
+    QString get_prenom();
+    QString get_mail();
+    long get_tel();
 
     bool ajouter();
+    QSqlQueryModel * afficher();
+
+    QSqlQueryModel * afficher_combobox();
+    QSqlQueryModel * afficher_mail();
+
+    bool testmail(QString);
+
+
     bool supprimer(int);
-    QSqlQueryModel* afficher();
-    bool modifier(int,QString,QString,QString,int);
+
+    bool modifier(int,QString,QString,QString,long);
+    QSqlQueryModel * rechercher(int );
+    QSqlQueryModel * afficher_tri_cin();
+    QSqlQueryModel * afficher_trinom();
+    QSqlQueryModel * afficher_triprenom();
+
+
+    QSqlQueryModel *displayClause(QString cls);
+
 
 private:
-    int id;
-    QString nom , prenom , email;
-    int numero;
+    int cin;
+    QString nom , prenom , mail;
+    long tel;
 };
 
 #endif // CLIENT_H
