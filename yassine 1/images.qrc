@@ -57,5 +57,9 @@
         <file>images/boutton client.png</file>
         <file>images/stock.png</file>
         <file>images/pastry.jpg</file>
+        <file>images/boutton commande.png</file>
+        <file>images/boutton employe.png</file>
+        <file>images/boutton fournisseur.png</file>
+        <file>images/boutton maintenance.png</file>
     </qresource>
 </RCC>

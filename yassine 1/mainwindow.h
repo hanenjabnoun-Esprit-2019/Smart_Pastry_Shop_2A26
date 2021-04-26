@@ -11,7 +11,8 @@
 #include "employer.h"
 #include "deppartement.h"
 #include <QMediaPlayer>
-
+#include "maintenance.h"
+#include "equipement.h"
 #include <QDialog>
 
 #include<QTimer>
@@ -181,7 +182,59 @@ private slots:
 
  //*********************************
 
+    //*************** moussa ******************
 
+    void on_pushButton_10_mou_clicked();
+
+
+
+        void on_pushButton_mou_clicked();
+
+        void on_pushButton_5_mou_clicked();
+
+        void on_pushButton_4_mou_clicked();
+
+        void on_pushButton_6_mou_clicked();
+
+
+
+        void on_pushButton_2_mou_clicked();
+
+        void on_pushButton_13_mou_clicked();
+
+        void on_pushButton_9_mou_clicked();
+
+        void on_pushButton_8_mou_clicked();
+
+        void on_pushButton_14_mou_clicked();
+
+        void on_pushButton_15_mou_clicked();
+
+
+        void on_pushButton_3_mou_clicked();
+
+
+
+        void on_tableView_3_mou_clicked(const QModelIndex &index);
+
+        void on_tableView_4_mou_clicked(const QModelIndex &index);
+
+
+
+
+        void on_pushButton_7_mou_clicked();
+
+        void on_pushButton_11_mou_clicked();
+
+
+
+        void on_pushButton_16_mou_clicked();
+
+
+
+       /* void on_stat_clicked();
+
+        void on_refresh_clicked();*/
 
 private:
     Ui::MainWindow *ui;
@@ -202,7 +255,8 @@ private:
      Deppartement D;
      hcommande Etmp;
      commandev ss;
-
+     equipement etemp;
+         maintenance mtemp;
 };
 
 #endif // MAINWINDOW_H
