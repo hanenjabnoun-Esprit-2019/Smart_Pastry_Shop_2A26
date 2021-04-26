@@ -6,12 +6,12 @@
 #include <QIntValidator>
 #include <QMessageBox>
 #include <QDebug>
-
+#include "maintenance.h"
+#include "equipement.h"
 #include <QChartView>
 #include <QPieSlice>
 #include <QPieSeries>
 #include <QChart>
-
 #include <QStatusBar>
 #include "hcommande.h"
 #include "commandev.h"
@@ -24,10 +24,24 @@
 #include <QPdfWriter>
 #include <QPainter>
 
-//#include <QtNetwork/QAbstractSocket>
-//#include <QtNetwork/QSslSocket>
+#include <QtNetwork/QAbstractSocket>
+#include <QtNetwork/QSslSocket>
 
 #include <QString>
+
+
+#include <QSsl>
+#include <QSslCertificate>
+#include <QSslCertificateExtension>
+#include <QSslCipher>
+#include <QSslConfiguration>
+#include <QSslDiffieHellmanParameters>
+#include <QSslEllipticCurve>
+#include <QSslError>
+#include <QSslKey>
+#include <QSslPreSharedKeyAuthenticator>
+#include <QSslSocket>
+
 
 #include <QTextStream>
 #include <QDebug>
@@ -119,6 +133,21 @@ MainWindow::MainWindow(QWidget *parent)
  connect(ui->sendBtn_4, SIGNAL(clicked()),this, SLOT(sendMail()));
  connect(ui->exitBtn_4, SIGNAL(clicked()),this, SLOT(close()));
 //........................
+
+ //............. moussa ...........
+
+ ui->tableView_3_mou->setModel(mtemp.afficher()); //affichage table fournisseur
+ ui->tableView_4_mou->setModel(etemp.afficher()); //affichage table devis
+
+
+ ui->tableView_3_mou->setSelectionBehavior(QAbstractItemView::SelectRows);
+  ui->tableView_3_mou->setSelectionMode(QAbstractItemView::SingleSelection);
+
+
+ ui->tableView_4_mou->setSelectionBehavior(QAbstractItemView::SelectRows);
+ ui->tableView_4_mou->setSelectionMode(QAbstractItemView::SingleSelection);
+
+ //........................
 
     QMediaPlayer * bulletsound = new QMediaPlayer();
            bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/HP/Desktop/Smart_Pastry_Shop_2A26/yassine/1.mp3"));
@@ -1350,5 +1379,561 @@ void MainWindow::on_trier_9_clicked()
     ui->tableView_7->setModel(ss.triervd());
 
 }
+
+//********************************************************
+
+
+//************************* moussa *******************************
+
+void MainWindow::on_pushButton_mou_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/ahmed/Documents/son projet/crud.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    int ID=ui->lineEdit_mou->text().toInt();
+    QString NOM=ui->lineEdit_5_mou->text();
+    QString ETAT = ui->lineEdit_4_mou->text();
+
+    equipement e(ID,NOM,ETAT);
+
+
+    bool test=e.ajouter();
+       qDebug() << "test :" << test;
+    if (test)
+    {
+        ui->tableView_4_mou->setModel(etemp.afficher());
+        QMessageBox::information(nullptr,QObject::tr("")
+                                 ,QObject::tr("Ajout effectué\n"
+                                              "Click Cancel to exit."),QMessageBox::Cancel);
+
+    }
+else
+    {
+        QMessageBox::critical(nullptr,QObject::tr("erreur")
+                                 ,QObject::tr("Ajout non effectué\n"
+                                              "Click Cancel to exit."),QMessageBox::Cancel);
+    }
+
+}
+
+
+void MainWindow::on_pushButton_5_mou_clicked()
+{
+    int ID= ui->lineEdit_14_mou->text().toInt();
+        QString DATE_M=ui->lineEdit_15_mou->text();
+        int PRIX=ui->lineEdit_16_mou->text().toInt();
+        int ID_EQP= ui->lineEdit_17_mou->text().toInt();
+        int ID_EMPLOYE= ui->lineEdit_18_mou->text().toInt();
+
+        if(ID==0)
+        {
+            QMessageBox::critical(nullptr, QObject::tr("vide"),
+                                  QObject::tr("veuillez saisir tous les champs correctement!\n"), QMessageBox::Cancel);
+
+        }else
+        {
+            bool test=mtemp.modifier(ID,DATE_M,PRIX,ID_EQP,ID_EMPLOYE);
+
+            if (test)
+            {
+                QMessageBox::information(nullptr, QObject::tr("Modifier maintenance"),
+                                         QObject::tr("MAIntenence modifié.\n"
+                                                     "Click Cancel to exit."), QMessageBox::Cancel);
+
+            }else
+                QMessageBox::critical(nullptr, QObject::tr("Modifier un maintenance"),
+                                      QObject::tr("Erreur !.\n"
+                                                  "Click Cancel to exit."), QMessageBox::Cancel);
+        }
+
+}
+
+void MainWindow::on_pushButton_4_mou_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/ahmed/Documents/son projet/crud.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    QItemSelectionModel *select = ui->tableView_3_mou->selectionModel();
+
+            int id =select->selectedRows(0).value(0).data().toInt();
+
+           if(mtemp.supprimer(id))
+            {
+                ui->tableView_3_mou->setModel(mtemp.afficher());
+
+             }
+}
+
+void MainWindow::on_pushButton_6_mou_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/ahmed/Documents/son projet/metier.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    ui->tableView_3_mou->setModel(mtemp.afficher(  ));
+   int ID= ui->lineEdit_10_mou->text().toInt();
+   ui->tableView_3_mou->setModel(mtemp.recherche(ID));
+
+}
+
+
+void MainWindow::on_pushButton_2_mou_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/ahmed/Documents/son projet/crud.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    int ID=ui->lineEdit_2_mou->text().toInt();
+    QString DATE_M=ui->lineEdit_6_mou->text();
+    int PRIX=ui->lineEdit_8_mou->text().toInt();
+   int ID_EQP=ui->lineEdit_9_mou->text().toInt();
+   int ID_EMPLOYE=ui->lineEdit_7_mou->text().toInt();
+
+    maintenance m(ID,DATE_M,PRIX,ID_EQP,ID_EMPLOYE);
+
+
+
+    bool test=m.ajouter();
+       qDebug() << "test :" << test;
+    if (test)
+    {
+        ui->tableView_3_mou->setModel(mtemp.afficher());
+        QMessageBox::information(nullptr,QObject::tr("")
+                                 ,QObject::tr("Ajout effectué\n"
+                                              "Click Cancel to exit."),QMessageBox::Cancel);
+    }
+else
+    {
+        QMessageBox::critical(nullptr,QObject::tr("erreur")
+                                 ,QObject::tr("Ajout non effectué\n"
+                                              "Click Cancel to exit."),QMessageBox::Cancel);
+    }
+
+}
+
+void MainWindow::on_pushButton_13_mou_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/ahmed/Documents/son projet/metier.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    ui->tableView_4_mou->setModel(etemp.afficher(  ));
+   int ID= ui->lineEdit_12_mou->text().toInt();
+   ui->tableView_4_mou->setModel(mtemp.recherche(ID));
+}
+
+void MainWindow::on_pushButton_9_mou_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/ahmed/Documents/son projet/crud.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    QItemSelectionModel *select = ui->tableView_4_mou->selectionModel();
+
+            int ID =select->selectedRows(0).value(0).data().toInt();
+
+           if(etemp.supprimer(ID))
+            {
+                ui->tableView_4_mou->setModel(etemp.afficher());
+
+             }
+}
+
+/*void MainWindow::on_pushButton_8_clicked()
+{
+    QString val=ui->tableView_4_mou->model()->data(index).toString();
+    QSqlQuery qry;
+    qry.prepare("select * from  EQUIPEMENT where NOM Like '%"+val+"%' or prenom Like'%"+val+"%' or date_naissance Like '%"+val+"%'  ");
+    if(qry.exec())
+    {
+        while(qry.next())
+        {
+            ui->ID->setText(qry.value(0).toString());
+            ui->NOM->setText(qry.value(1).toString());
+            ui->prenom_m->setText(qry.value(2).toString());
+            ui->date_m->setDate(qry.value(3).toDate());
+            ui->email_m->setText(qry.value(4).toString());
+            ui->tel_m->setText(qry.value(5).toString());
+            ui->comboBox_2->setEditText(qry.value(6).toString());
+        }
+    }
+      ui->stackedWidget->setCurrentIndex(4);
+     ui->tabWidget_3->setCurrentIndex(0);
+    ui->modifier->show();
+    }*/
+
+void MainWindow::on_pushButton_14_mou_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/ahmed/Documents/son projet/metier.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    {
+        ui->tableView_4_mou->setModel(etemp.afficher(  ));
+       int ID= ui->lineEdit_13_mou->text().toInt();
+       ui->tableView_4_mou->setModel(etemp.recherche(ID));
+
+    }
+}
+
+/*void MainWindow::on_pushButton_10_clicked()
+{
+    QPrinter printer;
+
+        printer.setPrinterName("desiered printer name");
+
+      QPrintDialog dialog(&printer,this);
+
+        if(dialog.exec()==QDialog::Rejected)
+
+            return;
+}*/
+
+
+void MainWindow::on_pushButton_15_mou_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/ahmed/Documents/son projet/metier.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    ui->tableView_3_mou->setModel(etemp.afficher(  ));
+   int ID= ui->lineEdit_11_mou->text().toInt();
+   ui->tableView_3_mou->setModel(mtemp.recherche(ID));
+}
+
+
+
+
+
+void MainWindow::on_tableView_3_mou_clicked(const QModelIndex &index)
+{
+        ui->lineEdit_14_mou->setText( ui->tableView_3_mou->model()->data(ui->tableView_3_mou->model()->index(ui->tableView_3_mou->selectionModel()->currentIndex().row(),0)).toString() );
+        ui->lineEdit_15_mou->setText( ui->tableView_3_mou->model()->data(ui->tableView_3_mou->model()->index(ui->tableView_3_mou->selectionModel()->currentIndex().row(),1)).toString() );
+        ui->lineEdit_16_mou->setText( ui->tableView_3_mou->model()->data(ui->tableView_3_mou->model()->index(ui->tableView_3_mou->selectionModel()->currentIndex().row(),2)).toString() );
+        ui->lineEdit_17_mou->setText( ui->tableView_3_mou->model()->data(ui->tableView_3_mou->model()->index(ui->tableView_3_mou->selectionModel()->currentIndex().row(),0)).toString() );
+        ui->lineEdit_18_mou->setText( ui->tableView_3_mou->model()->data(ui->tableView_3_mou->model()->index(ui->tableView_3_mou->selectionModel()->currentIndex().row(),1)).toString() );
+}
+
+void MainWindow::on_tableView_4_mou_clicked(const QModelIndex &index)
+{
+    ui->lineEdit_19_mou->setText( ui->tableView_4_mou->model()->data(ui->tableView_4_mou->model()->index(ui->tableView_4_mou->selectionModel()->currentIndex().row(),0)).toString() );
+    ui->lineEdit_20_mou->setText( ui->tableView_4_mou->model()->data(ui->tableView_4_mou->model()->index(ui->tableView_4_mou->selectionModel()->currentIndex().row(),1)).toString() );
+    ui->lineEdit_21_mou->setText( ui->tableView_4_mou->model()->data(ui->tableView_4_mou->model()->index(ui->tableView_4_mou->selectionModel()->currentIndex().row(),2)).toString() );
+
+}
+
+void MainWindow::on_pushButton_7_mou_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/ahmed/Documents/son projet/metier.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+ equipement e;
+ e.trier_id(ui);
+}
+void MainWindow::on_pushButton_3_mou_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/ahmed/Documents/son projet/metier.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+maintenance m;
+m.trier_id(ui);
+}
+void MainWindow::on_pushButton_10_mou_clicked()
+{
+    QString strStream;
+                 QTextStream out(&strStream);
+
+                 const int rowCount = ui->tableView_4_mou->model()->rowCount();
+                 const int columnCount = ui->tableView_4_mou->model()->columnCount();
+
+                 out <<  "<html>\n"
+                     "<head>\n"
+                     "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                     <<  QString("<title>%1</title>\n").arg("strTitle")
+                     <<  "</head>\n"
+                     "<body bgcolor=#ffffff link=#5000A0>\n"
+
+                    //     "<align='right'> " << datefich << "</align>"
+                     "<center> <H1>Liste des equipement </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
+
+                 // headers
+                 out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
+                 for (int column = 0; column < columnCount; column++)
+                     if (!ui->tableView_4_mou->isColumnHidden(column))
+                         out << QString("<th>%1</th>").arg(ui->tableView_4_mou->model()->headerData(column, Qt::Horizontal).toString());
+                 out << "</tr></thead>\n";
+
+                 // data table
+                 for (int row = 0; row < rowCount; row++) {
+                     out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
+                     for (int column = 0; column < columnCount; column++) {
+                         if (!ui->tableView_4_mou->isColumnHidden(column)) {
+                             QString data = ui->tableView_4_mou->model()->data(ui->tableView_4_mou->model()->index(row, column)).toString().simplified();
+                             out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                         }
+                     }
+                     out << "</tr>\n";
+                 }
+                 out <<  "</table> </center>\n"
+                     "</body>\n"
+                     "</html>\n";
+
+           QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", QString(), "*.pdf");
+             if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+            QPrinter printer (QPrinter::PrinterResolution);
+             printer.setOutputFormat(QPrinter::PdfFormat);
+            printer.setPaperSize(QPrinter::A4);
+           printer.setOutputFileName(fileName);
+
+            QTextDocument doc;
+             doc.setHtml(strStream);
+             doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+             doc.print(&printer);
+
+
+    }
+void MainWindow::on_pushButton_11_mou_clicked()
+{
+    QString strStream;
+                 QTextStream out(&strStream);
+
+                 const int rowCount = ui->tableView_3_mou->model()->rowCount();
+                 const int columnCount = ui->tableView_3_mou->model()->columnCount();
+
+                 out <<  "<html>\n"
+                     "<head>\n"
+                     "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                     <<  QString("<title>%1</title>\n").arg("strTitle")
+                     <<  "</head>\n"
+                     "<body bgcolor=#ffffff link=#5000A0>\n"
+
+                    //     "<align='right'> " << datefich << "</align>"
+                     "<center> <H1>Liste de Maintenance </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
+
+                 // headers
+                 out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
+                 for (int column = 0; column < columnCount; column++)
+                     if (!ui->tableView_3_mou->isColumnHidden(column))
+                         out << QString("<th>%1</th>").arg(ui->tableView_3_mou->model()->headerData(column, Qt::Horizontal).toString());
+                 out << "</tr></thead>\n";
+
+                 // data table
+                 for (int row = 0; row < rowCount; row++) {
+                     out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
+                     for (int column = 0; column < columnCount; column++) {
+                         if (!ui->tableView_3_mou->isColumnHidden(column)) {
+                             QString data = ui->tableView_3_mou->model()->data(ui->tableView_3_mou->model()->index(row, column)).toString().simplified();
+                             out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                         }
+                     }
+                     out << "</tr>\n";
+                 }
+                 out <<  "</table> </center>\n"
+                     "</body>\n"
+                     "</html>\n";
+
+           QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", QString(), "*.pdf");
+             if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+            QPrinter printer (QPrinter::PrinterResolution);
+             printer.setOutputFormat(QPrinter::PdfFormat);
+            printer.setPaperSize(QPrinter::A4);
+           printer.setOutputFileName(fileName);
+
+            QTextDocument doc;
+             doc.setHtml(strStream);
+             doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+             doc.print(&printer);
+
+
+    }
+void MainWindow::on_pushButton_16_mou_clicked()
+{
+    QString strStream;
+                 QTextStream out(&strStream);
+
+                 const int rowCount = ui->tableView_4_mou->model()->rowCount();
+                 const int columnCount = ui->tableView_4_mou->model()->columnCount();
+
+                 out <<  "<html>\n"
+                     "<head>\n"
+                     "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                     <<  QString("<title>%1</title>\n").arg("strTitle")
+                     <<  "</head>\n"
+                     "<body bgcolor=#ffffff link=#5000A0>\n"
+
+                    //     "<align='right'> " << datefich << "</align>"
+                     "<center> <H1>Liste des equipement </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
+
+                 // headers
+                 out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
+                 for (int column = 0; column < columnCount; column++)
+                     if (!ui->tableView_3_mou->isColumnHidden(column))
+                         out << QString("<th>%1</th>").arg(ui->tableView_4_mou->model()->headerData(column, Qt::Horizontal).toString());
+                 out << "</tr></thead>\n";
+
+                 // data table
+                 for (int row = 0; row < rowCount; row++) {
+                     out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
+                     for (int column = 0; column < columnCount; column++) {
+                         if (!ui->tableView_4_mou->isColumnHidden(column)) {
+                             QString data = ui->tableView_4_mou->model()->data(ui->tableView_4_mou->model()->index(row, column)).toString().simplified();
+                             out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                         }
+                     }
+                     out << "</tr>\n";
+                 }
+                 out <<  "</table> </center>\n"
+                     "</body>\n"
+                     "</html>\n";
+
+           QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en TXT", QString(), "*.txt");
+             if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".txt"); }
+
+            QPrinter printer (QPrinter::PrinterResolution);
+             printer.setOutputFormat(QPrinter::PdfFormat);
+            printer.setPaperSize(QPrinter::A4);
+           printer.setOutputFileName(fileName);
+
+            QTextDocument doc;
+             doc.setHtml(strStream);
+             doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+             doc.print(&printer);
+
+
+    }
+
+
+void MainWindow::on_pushButton_8_mou_clicked()
+{
+    int ID= ui->lineEdit_19_mou->text().toInt();
+        QString NOM=ui->lineEdit_20_mou->text();
+        QString ETAT=ui->lineEdit_21_mou->text();
+
+        if(ID==0)
+        {
+            QMessageBox::critical(nullptr, QObject::tr("vide"),
+                                  QObject::tr("veuillez saisir tous les champs correctement!\n"), QMessageBox::Cancel);
+
+        }else
+        {
+            bool test=etemp.modifier(ID,NOM,ETAT);
+
+            if (test)
+            {
+                QMessageBox::information(nullptr, QObject::tr("Modifier un equipement"),
+                                         QObject::tr("equipement modifié.\n"
+                                                     "Click Cancel to exit."), QMessageBox::Cancel);
+
+            }else
+                QMessageBox::critical(nullptr, QObject::tr("Modifier un equipement"),
+                                      QObject::tr("Erreur !.\n"
+                                                  "Click Cancel to exit."), QMessageBox::Cancel);
+        }
+}
+
+
+
+/*void MainWindow::on_stat_clicked()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from EQUIPEMENT where ETAT=='1' ");
+    float salaire=model->rowCount();
+    model->setQuery("select * from EQUIPEMENT where ETAT=='0' ");
+    float salairee=model->rowCount();
+    float total=salaire+salairee;
+    QString a=QString(" EQUIPEMENT=1 "+QString::number((salaire*100)/total,'f',2)+"%" );
+    QString b=QString(" EQUIPEMENT=0  "+QString::number((salairee*100)/total,'f',2)+"%" );
+    QPieSeries *series = new QPieSeries();
+    series->append(a,salaire);
+    series->append(b,salairee);
+    if (salaire!=0)
+    {QPieSlice *slice = series->slices().at(0);
+        slice->setLabelVisible();
+        slice->setPen(QPen());}
+    if ( salairee!=0)
+    {
+        // Add label, explode and define brush for 2nd slice
+        QPieSlice *slice1 = series->slices().at(1);
+        //slice1->setExploded();
+        slice1->setLabelVisible();
+    }
+    if(salaireee!=0)
+    {
+        // Add labels to rest of slices
+        QPieSlice *slice2 = series->slices().at(2);
+        //slice1->setExploded();
+        slice2->setLabelVisible();
+    }
+    // Create the chart widget
+    QChart *chart = new QChart();
+    // Add data to chart with title and hide legend
+    chart->addSeries(series);
+    chart->setTitle("Statistiques: Nombre Des abonnements  "+ QString::number(total));
+    chart->legend()->hide();
+    // Used to display the chart
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->resize(1000,500);
+    chartView->show();
+}*/
+
+/*void MainWindow::on_refresh_clicked()
+{
+    refresh();
+}
+
+void MainWindow::refresh(){
+    ui->tableView_4_mou->setModel(etemp.afficher());
+    ui->tableView_3_mou->setModel(mtemp.afficher());
+    }
+
+
+*/
 
 //********************************************************
