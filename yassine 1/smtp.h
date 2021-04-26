@@ -18,10 +18,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #include <QDebug>
 #include <QtWidgets/QMessageBox>
 #include <QByteArray>
-#include <QtNetwork>
-#include <QSslSocket>
-#include <QFile>
-#include <QFileInfo>
+
 
 
 class Smtp : public QObject
@@ -30,20 +27,12 @@ class Smtp : public QObject
 
 
 public:
-//    Smtp( const QString &user, const QString &pass,
-//          const QString &host, quint16 port = 587
-//            , int timeout = 30000 );
+    Smtp( const QString &user, const QString &pass,
+          const QString &host, int port = 465, int timeout = 30000 );
     ~Smtp();
 
-    Smtp( const QString &user, const QString &pass,
-          const QString &host, int port2 = 465, int timeout = 30000 );//Sana
-
     void sendMail( const QString &from, const QString &to,
-                   const QString &subject, const QString &body,
-                   QStringList files = QStringList());//Sana
-
-//    void sendMail( const QString &from, const QString &to,
-//                   const QString &subject, const QString &body );
+                   const QString &subject, const QString &body );
 
 signals:
     void status( const QString &);
@@ -66,9 +55,9 @@ private:
     QString user;
     QString pass;
     QString host;
-    quint16 port;
-    int port2;
+    int port;
     enum states{Tls, HandShake ,Auth,User,Pass,Rcpt,Mail,Data,Init,Body,Quit,Close};
     int state;
+
 };
 #endif

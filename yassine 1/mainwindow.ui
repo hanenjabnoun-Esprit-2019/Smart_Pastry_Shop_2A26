@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1019</width>
-    <height>678</height>
+    <width>1362</width>
+    <height>774</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -508,7 +508,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>:/images/logo.png</pixmap>
+      <pixmap resource="images.qrc">:/images/logo.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -525,8 +525,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
      </property>
      <property name="styleSheet">
       <string notr="true">
-border-style:outset ; 
-border-width:0px ; 
+border-style:outset ;
+border-width:0px ;
 border-radius:0px; </string>
      </property>
      <property name="text">
@@ -1017,7 +1017,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       <string>Déconnexion</string>
      </property>
      <property name="icon">
-      <iconset>
+      <iconset resource="images.qrc">
        <normaloff>:/images/deco.png</normaloff>:/images/deco.png</iconset>
      </property>
     </widget>
@@ -1032,8 +1032,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
      </property>
      <property name="styleSheet">
       <string notr="true">
-border-style:outset ; 
-border-width:0px ; 
+border-style:outset ;
+border-width:0px ;
 border-radius:0px; </string>
      </property>
      <property name="text">
@@ -1061,8 +1061,8 @@ border-radius:0px; </string>
      </property>
      <property name="styleSheet">
       <string notr="true">
-border-style:outset ; 
-border-width:0px ; 
+border-style:outset ;
+border-width:0px ;
 border-radius:0px; </string>
      </property>
      <property name="text">
@@ -1090,8 +1090,8 @@ border-radius:0px; </string>
      </property>
      <property name="styleSheet">
       <string notr="true">
-border-style:outset ; 
-border-width:0px ; 
+border-style:outset ;
+border-width:0px ;
 border-radius:0px; </string>
      </property>
      <property name="text">
@@ -1120,15 +1120,15 @@ border-radius:0px; </string>
      <property name="styleSheet">
       <string notr="true">
 
-border-style:outset ; 
-border-width:0px ; 
+border-style:outset ;
+border-width:0px ;
 border-radius:0px; </string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
-      <iconset>
+      <iconset resource="images.qrc">
        <normaloff>:/images/boutton client.png</normaloff>:/images/boutton client.png</iconset>
      </property>
      <property name="iconSize">
@@ -1145,10 +1145,10 @@ border-radius:0px; </string>
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>250</x>
       <y>0</y>
-      <width>811</width>
-      <height>621</height>
+      <width>1201</width>
+      <height>691</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -1613,7 +1613,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -2583,8 +2583,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">QPushButton:hover{ 
-	background-color: rgb(0, 255, 255);
+           <string notr="true">QPushButton:hover{
+        background-color: rgb(0, 255, 255);
 color:#fff;
 background:#6a1616;
 border: none;
@@ -3368,7 +3368,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap>:/images/modifier.png</pixmap>
+             <pixmap resource="images.qrc">:/images/modifier.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
@@ -3497,8 +3497,8 @@ border-color:red;</string>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">QPushButton:hover{ 
-	background-color: rgb(0, 255, 255);
+             <string notr="true">QPushButton:hover{
+        background-color: rgb(0, 255, 255);
 color:#fff;
 background:#6a1616;
 border: none;
@@ -3652,8 +3652,8 @@ border-color:blue;</string>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">QPushButton:hover{ 
-	background-color: rgb(0, 255, 255);
+             <string notr="true">QPushButton:hover{
+        background-color: rgb(0, 255, 255);
 color:#fff;
 background:#6a1616;
 border: none;
@@ -3765,8 +3765,8 @@ border-color:blue;</string>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">QPushButton:hover{ 
-	background-color: rgb(0, 255, 255);
+             <string notr="true">QPushButton:hover{
+        background-color: rgb(0, 255, 255);
 color:#fff;
 background:#6a1616;
 border: none;
@@ -3865,8 +3865,8 @@ border-color:blue;</string>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">QPushButton:hover{ 
-	background-color: rgb(0, 255, 255);
+             <string notr="true">QPushButton:hover{
+        background-color: rgb(0, 255, 255);
 color:#fff;
 background:#6a1616;
 border: none;
@@ -8207,7 +8207,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>:/images/loupe.png</pixmap>
+           <pixmap resource="images.qrc">:/images/loupe.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -8838,7 +8838,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>:/images/modifier salarie.png</pixmap>
+           <pixmap resource="images.qrc">:/images/modifier salarie.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -9997,7 +9997,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>:/images/modifier.png</pixmap>
+           <pixmap resource="images.qrc">:/images/modifier.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -14384,7 +14384,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>:/images/loupe.png</pixmap>
+           <pixmap resource="images.qrc">:/images/loupe.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -14966,7 +14966,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>:/images/modifier salarie.png</pixmap>
+           <pixmap resource="images.qrc">:/images/modifier salarie.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -15615,7 +15615,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>:/images/mail.png</pixmap>
+           <pixmap resource="images.qrc">:/images/mail.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -15664,7 +15664,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
@@ -16686,7 +16686,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
          </rect>
         </property>
         <property name="currentIndex">
-         <number>3</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tab_14">
          <attribute name="title">
@@ -17535,6 +17535,1952 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       </widget>
      </widget>
     </widget>
+    <widget class="QWidget" name="tab_18">
+     <attribute name="title">
+      <string>commande</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1061</width>
+        <height>621</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_40">
+       <attribute name="title">
+        <string>commande achat</string>
+       </attribute>
+       <widget class="QTabWidget" name="tabWidget_8">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>1051</width>
+          <height>571</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>4</number>
+        </property>
+        <widget class="QWidget" name="tab_41">
+         <attribute name="title">
+          <string>Ajouter commande</string>
+         </attribute>
+         <widget class="QLabel" name="label_109">
+          <property name="geometry">
+           <rect>
+            <x>6</x>
+            <y>12</y>
+            <width>1031</width>
+            <height>321</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_110">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>42</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_111">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>100</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="palette">
+           <palette>
+            <active>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Button">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Text">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="ButtonText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Base">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Window">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </active>
+            <inactive>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Button">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Text">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="ButtonText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Base">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Window">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </inactive>
+            <disabled>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>64</red>
+                <green>64</green>
+                <blue>64</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Button">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Text">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>64</red>
+                <green>64</green>
+                <blue>64</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="ButtonText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>64</red>
+                <green>64</green>
+                <blue>64</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Base">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Window">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </disabled>
+           </palette>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>Quantite</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_112">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>150</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>Fournisseur</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_113">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>210</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>Client</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_i_2">
+          <property name="geometry">
+           <rect>
+            <x>280</x>
+            <y>40</y>
+            <width>131</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_q_2">
+          <property name="geometry">
+           <rect>
+            <x>280</x>
+            <y>100</y>
+            <width>131</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_f_2">
+          <property name="geometry">
+           <rect>
+            <x>280</x>
+            <y>150</y>
+            <width>131</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_c_2">
+          <property name="geometry">
+           <rect>
+            <x>280</x>
+            <y>210</y>
+            <width>131</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="ajouterc_3">
+          <property name="geometry">
+           <rect>
+            <x>570</x>
+            <y>92</y>
+            <width>211</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>AJOUTER COMMANDE</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_42">
+         <attribute name="title">
+          <string>afficher commande</string>
+         </attribute>
+         <widget class="QTableView" name="tableView_5">
+          <property name="geometry">
+           <rect>
+            <x>-5</x>
+            <y>1</y>
+            <width>831</width>
+            <height>341</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_114">
+          <property name="geometry">
+           <rect>
+            <x>6</x>
+            <y>340</y>
+            <width>1031</width>
+            <height>201</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="trier_6">
+          <property name="geometry">
+           <rect>
+            <x>900</x>
+            <y>50</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>trier</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="export_4">
+          <property name="geometry">
+           <rect>
+            <x>900</x>
+            <y>100</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>export pdf</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="excel_2">
+          <property name="geometry">
+           <rect>
+            <x>900</x>
+            <y>140</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>export excel</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_43">
+         <attribute name="title">
+          <string>modifier</string>
+         </attribute>
+         <widget class="QLabel" name="label_115">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>10</y>
+            <width>1101</width>
+            <height>331</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_116">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>50</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>ID A MODIFIER</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_r_3">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>50</y>
+            <width>161</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="search_3">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>110</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>chercher</string>
+          </property>
+         </widget>
+         <widget class="QTableView" name="tableView_6">
+          <property name="geometry">
+           <rect>
+            <x>420</x>
+            <y>30</y>
+            <width>451</width>
+            <height>71</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_117">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>200</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_118">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>200</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="palette">
+           <palette>
+            <active>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Button">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Text">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="ButtonText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Base">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Window">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </active>
+            <inactive>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Button">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Text">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="ButtonText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Base">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Window">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </inactive>
+            <disabled>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>64</red>
+                <green>64</green>
+                <blue>64</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Button">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Text">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>64</red>
+                <green>64</green>
+                <blue>64</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="ButtonText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>64</red>
+                <green>64</green>
+                <blue>64</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Base">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="Window">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>50</red>
+                <green>50</green>
+                <blue>50</blue>
+               </color>
+              </brush>
+             </colorrole>
+             <colorrole role="PlaceholderText">
+              <brush brushstyle="NoBrush">
+               <color alpha="128">
+                <red>177</red>
+                <green>177</green>
+                <blue>177</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </disabled>
+           </palette>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>Quantite</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_119">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>200</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>Fournisseur</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_120">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>200</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>Client</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_u4_2">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>250</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_u3_2">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>250</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_u2_2">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>250</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_u1_4">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>250</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="update_3">
+          <property name="geometry">
+           <rect>
+            <x>710</x>
+            <y>250</y>
+            <width>121</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>UPDATE</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_44">
+         <attribute name="title">
+          <string>supprimer commande</string>
+         </attribute>
+         <widget class="QLabel" name="label_121">
+          <property name="geometry">
+           <rect>
+            <x>6</x>
+            <y>12</y>
+            <width>1031</width>
+            <height>531</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_122">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>180</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_s_3">
+          <property name="geometry">
+           <rect>
+            <x>342</x>
+            <y>180</y>
+            <width>311</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="Supp_3">
+          <property name="geometry">
+           <rect>
+            <x>340</x>
+            <y>280</y>
+            <width>301</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>SUPPRIMER</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_45">
+         <attribute name="title">
+          <string>send mail</string>
+         </attribute>
+         <widget class="QWidget" name="layoutWidget_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>1601</width>
+            <height>431</height>
+           </rect>
+          </property>
+          <layout class="QFormLayout" name="formLayout_3">
+           <property name="fieldGrowthPolicy">
+            <enum>QFormLayout::ExpandingFieldsGrow</enum>
+           </property>
+           <property name="rowWrapPolicy">
+            <enum>QFormLayout::WrapLongRows</enum>
+           </property>
+           <property name="verticalSpacing">
+            <number>9</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_123">
+             <property name="text">
+              <string>Smtp-server:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_124">
+             <property name="text">
+              <string>Server port:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_125">
+             <property name="text">
+              <string>Username:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_126">
+             <property name="text">
+              <string>Password:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_127">
+             <property name="text">
+              <string>Recipant to:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_128">
+             <property name="text">
+              <string>Subject:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_129">
+             <property name="text">
+              <string>Message:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="server_3">
+             <property name="text">
+              <string>smtp.gmail.com</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="uname_3"/>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="paswd_3">
+             <property name="inputMask">
+              <string/>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="rcpt_3"/>
+           </item>
+           <item row="6" column="1">
+            <widget class="QLineEdit" name="subject_3"/>
+           </item>
+           <item row="7" column="1">
+            <widget class="QPlainTextEdit" name="msg_3"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="port_3">
+             <property name="text">
+              <string>465</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QPushButton" name="sendBtn_2">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>480</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>send</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="exitBtn_2">
+          <property name="geometry">
+           <rect>
+            <x>370</x>
+            <y>480</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>exit</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_46">
+       <attribute name="title">
+        <string>commande vente</string>
+       </attribute>
+       <widget class="QTabWidget" name="tabWidget_9">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>1061</width>
+          <height>541</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>4</number>
+        </property>
+        <widget class="QWidget" name="tab_47">
+         <attribute name="title">
+          <string>ajouter</string>
+         </attribute>
+         <widget class="QLabel" name="label_130">
+          <property name="geometry">
+           <rect>
+            <x>6</x>
+            <y>12</y>
+            <width>1041</width>
+            <height>321</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_131">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_132">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>70</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>PRODUIT</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_133">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>120</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>DATE</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_134">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>170</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>PRIX</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_135">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>230</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>QUANTITE</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_3">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>10</y>
+            <width>211</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_6">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>70</y>
+            <width>211</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_7">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>170</y>
+            <width>211</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_8">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>230</y>
+            <width>211</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="ajouterc_4">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>100</y>
+            <width>211</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>AJOUTER COMMANDE</string>
+          </property>
+         </widget>
+         <widget class="QDateEdit" name="dateEdit_3">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>120</y>
+            <width>191</width>
+            <height>31</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_48">
+         <attribute name="title">
+          <string>afficher</string>
+         </attribute>
+         <widget class="QLabel" name="label_136">
+          <property name="geometry">
+           <rect>
+            <x>6</x>
+            <y>12</y>
+            <width>1051</width>
+            <height>321</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QTableView" name="tableView_7">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>831</width>
+            <height>341</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="trier_7">
+          <property name="geometry">
+           <rect>
+            <x>880</x>
+            <y>60</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>trier</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="trier_8">
+          <property name="geometry">
+           <rect>
+            <x>880</x>
+            <y>110</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>trier par produit</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="trier_9">
+          <property name="geometry">
+           <rect>
+            <x>880</x>
+            <y>150</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>trier par date</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="geometry">
+           <rect>
+            <x>880</x>
+            <y>190</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>refresh</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="export_5">
+          <property name="geometry">
+           <rect>
+            <x>880</x>
+            <y>230</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>export pdf</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_49">
+         <attribute name="title">
+          <string>modifier</string>
+         </attribute>
+         <widget class="QLabel" name="label_137">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>1051</width>
+            <height>341</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_138">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>40</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>ID A MODIFIER</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_r_4">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>40</y>
+            <width>161</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="search_4">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>100</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>chercher</string>
+          </property>
+         </widget>
+         <widget class="QTableView" name="tableView_8">
+          <property name="geometry">
+           <rect>
+            <x>420</x>
+            <y>20</y>
+            <width>551</width>
+            <height>71</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_139">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>200</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_140">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>200</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>PRODUIT</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_141">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>200</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>DATE</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_142">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>200</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>PRIX</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_143">
+          <property name="geometry">
+           <rect>
+            <x>690</x>
+            <y>200</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>QUANTITE</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="update_4">
+          <property name="geometry">
+           <rect>
+            <x>870</x>
+            <y>200</y>
+            <width>121</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>UPDATE</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_u1_7">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>260</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_u1_8">
+          <property name="geometry">
+           <rect>
+            <x>180</x>
+            <y>260</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_u1_9">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>260</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_u1_10">
+          <property name="geometry">
+           <rect>
+            <x>690</x>
+            <y>260</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QDateEdit" name="dateEdit_4">
+          <property name="geometry">
+           <rect>
+            <x>359</x>
+            <y>260</y>
+            <width>131</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_50">
+         <attribute name="title">
+          <string>supprimer</string>
+         </attribute>
+         <widget class="QLabel" name="label_144">
+          <property name="geometry">
+           <rect>
+            <x>6</x>
+            <y>2</y>
+            <width>1041</width>
+            <height>331</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_145">
+          <property name="geometry">
+           <rect>
+            <x>160</x>
+            <y>120</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial Black</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::WinPanel</enum>
+          </property>
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_s_4">
+          <property name="geometry">
+           <rect>
+            <x>340</x>
+            <y>120</y>
+            <width>311</width>
+            <height>41</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="Supp_4">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>180</y>
+            <width>301</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>SUPPRIMER</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_51">
+         <attribute name="title">
+          <string>mail sender</string>
+         </attribute>
+         <widget class="QWidget" name="layoutWidget_4">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>811</width>
+            <height>431</height>
+           </rect>
+          </property>
+          <layout class="QFormLayout" name="formLayout_5">
+           <property name="fieldGrowthPolicy">
+            <enum>QFormLayout::ExpandingFieldsGrow</enum>
+           </property>
+           <property name="rowWrapPolicy">
+            <enum>QFormLayout::WrapLongRows</enum>
+           </property>
+           <property name="verticalSpacing">
+            <number>9</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_146">
+             <property name="text">
+              <string>Smtp-server:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="server_5">
+             <property name="text">
+              <string>smtp.gmail.com</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_147">
+             <property name="text">
+              <string>Server port:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="port_5">
+             <property name="text">
+              <string>465</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_148">
+             <property name="text">
+              <string>Username:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="uname_5"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_149">
+             <property name="text">
+              <string>Password:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="paswd_5">
+             <property name="inputMask">
+              <string/>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_150">
+             <property name="text">
+              <string>Recipant to:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="rcpt_5"/>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_151">
+             <property name="text">
+              <string>Subject:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QLineEdit" name="subject_5"/>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_152">
+             <property name="text">
+              <string>Message:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QPlainTextEdit" name="msg_5"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QPushButton" name="sendBtn_4">
+          <property name="geometry">
+           <rect>
+            <x>930</x>
+            <y>190</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>send</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="exitBtn_4">
+          <property name="geometry">
+           <rect>
+            <x>930</x>
+            <y>230</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>exit</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -17542,7 +19488,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1019</width>
+     <width>1362</width>
      <height>22</height>
     </rect>
    </property>
@@ -17558,6 +19504,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>
