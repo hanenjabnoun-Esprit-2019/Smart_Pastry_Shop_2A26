@@ -4,8 +4,10 @@
 #include "client.h"
 #include "carte_fid.h"
 #include "notification.h"
+#include "notifications.h"
 #include "popup.h"
-
+#include "hcommande.h"
+#include "commandev.h"
 #include "employer.h"
 #include "deppartement.h"
 #include <QMediaPlayer>
@@ -91,7 +93,7 @@ private slots:
 
     void on_pb_ajouter_7_clicked();
 
-    void mailSent(QString );
+   // void mailSent(QString );
 
     void on_radioButton_6_clicked();
 
@@ -105,6 +107,8 @@ private slots:
 
 
     //*********************************
+
+    //**************** seif *****************
 
 
     void on_pb_ajouter_clicked();
@@ -135,6 +139,47 @@ private slots:
     void on_reset_depp_clicked();
 
 
+//*********************************
+
+    //*************** houssem ******************
+
+
+    void on_ajouterc_3_clicked();
+
+    void on_Supp_3_clicked();
+
+    void on_trier_6_clicked();
+
+    void on_search_3_clicked();
+
+    void on_update_3_clicked();
+
+    void on_export_4_clicked();
+
+
+    void sendMail();
+
+    void mailSent(QString);
+
+    void on_ajouterc_4_clicked();
+
+    void on_Supp_4_clicked();
+
+    void on_trier_7_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_search_4_clicked();
+
+    void on_update_4_clicked();
+
+    void on_export_5_clicked();
+
+    void on_trier_8_clicked();
+
+    void on_trier_9_clicked();
+
+ //*********************************
 
 
 
@@ -155,6 +200,8 @@ private:
      QString text;
      Employer E;
      Deppartement D;
+     hcommande Etmp;
+     commandev ss;
 
 };
 

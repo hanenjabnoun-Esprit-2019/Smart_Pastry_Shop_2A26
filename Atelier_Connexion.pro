@@ -7,17 +7,17 @@ QT += sql
 
 QT       += core gui sql
 QT += network
-CONFIG += console
+CONFIG += console qaxcontainer
 QT += printsupport
 QT += multimedia
 QT += charts
 QT += core gui charts
-QT       += core gui printsupport widgets network charts sql \
+QT       += core gui printsupport widgets  charts sql \
   multimedia serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Atelier_Connexion
+TARGET = Atelier_Connexion smtp
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -36,12 +36,15 @@ CONFIG += openssl-linked
 SOURCES += \
     carte_fid.cpp \
     client.cpp \
+    commandev.cpp \
     deppartement.cpp \
     employer.cpp \
+    hcommande.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
     notification.cpp \
+    notifications.cpp \
     popup.cpp \
     qcustomplot.cpp \
     smtp.cpp
@@ -49,12 +52,15 @@ SOURCES += \
 HEADERS += \
     carte_fid.h \
     client.h \
+    commandev.h \
     deppartement.h \
     employer.h \
+    hcommande.h \
         mainwindow.h \
     connection.h \
     nizar.h \
     notification.h \
+    notifications.h \
     popup.h \
     qcustomplot.h \
     smtp.h
