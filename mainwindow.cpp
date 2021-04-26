@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "ui_dialog.h"
+#include "QPrintDialog"
 #include "client.h"
 #include <QString>
 #include <QIntValidator>
@@ -20,7 +21,8 @@
 #include "deppartement.h"
 #include "smtp.h"
 #include<cstdlib>
-
+#include "fournisseur.h"
+#include "c_achat.h"
 #include <QPdfWriter>
 #include <QPainter>
 
@@ -175,6 +177,21 @@ MainWindow::MainWindow(QWidget *parent)
     ui->comboBox_ida_2->setModel(tmpabonnee.afficher_combobox());
 
 
+
+    //********************************************************
+
+    //************************* khalil *******************************
+
+    ui->tableView_3_kh->setModel(ftemp.afficher()); //affichage table fournisseur
+    ui->tableView_4_kh->setModel(ctemp.afficher()); //affichage table devis
+
+
+    ui->tableView_3_kh->setSelectionBehavior(QAbstractItemView::SelectRows);
+     ui->tableView_3_kh->setSelectionMode(QAbstractItemView::SingleSelection);
+
+
+    ui->tableView_4_kh->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableView_4_kh->setSelectionMode(QAbstractItemView::SingleSelection);
 
     //********************************************************
 
@@ -1935,5 +1952,395 @@ void MainWindow::refresh(){
 
 
 */
+
+//********************************************************
+
+
+//*************************** khalil *****************************
+
+void MainWindow::on_pushButton_kh_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/Khalil/Desktop/projet_1/rii/ze.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    int ID=ui->lineEdit_kh->text().toInt();
+    QString DATE_C=ui->lineEdit_5_kh->text();
+     int PRIX=ui->lineEdit_4_kh->text().toInt();
+      int ID_FOURNISSEUR=ui->lineEdit_22_kh->text().toInt();
+       int ID_EMPLOYE=ui->lineEdit_23_kh->text().toInt();
+
+    c_achat c(ID,DATE_C,PRIX,ID_FOURNISSEUR,ID_EMPLOYE);
+
+
+    bool test=c.ajouter();
+       qDebug() << "test :" << test;
+    if (test)
+    {
+        ui->tableView_4_kh->setModel(ctemp.afficher());
+        QMessageBox::information(nullptr,QObject::tr("")
+                                 ,QObject::tr("Ajout effectué\n"
+                                              "Click Cancel to exit."),QMessageBox::Cancel);
+    }
+else
+    {
+        QMessageBox::critical(nullptr,QObject::tr("erreur")
+                                 ,QObject::tr("Ajout non effectué\n"
+                                              "Click Cancel to exit."),QMessageBox::Cancel);
+    }
+
+}
+
+
+void MainWindow::on_pushButton_5_kh_clicked()
+{
+    int ID= ui->lineEdit_14_kh->text().toInt();
+            QString NOM=ui->lineEdit_15_kh->text();
+             QString PRENOM= ui->lineEdit_16_kh->text();
+            int NUMERO= ui->lineEdit_17_kh->text().toInt();
+            QString EMAIL= ui->lineEdit_18_kh->text();
+
+
+            if(ID==0)
+            {
+                QMessageBox::critical(nullptr, QObject::tr("vide"),
+                                      QObject::tr("veuillez saisir tous les champs correctement!\n"), QMessageBox::Cancel);
+
+            }else
+            {
+                bool test=ftemp.modifier(ID,PRENOM,NOM,NUMERO,EMAIL);
+
+                if (test)
+                {
+                    QMessageBox::information(nullptr, QObject::tr("Modifier une commande"),
+                                             QObject::tr("commande modifié.\n"
+                                                         "Click Cancel to exit."), QMessageBox::Cancel);
+
+                }else
+                    QMessageBox::critical(nullptr, QObject::tr("Modifier une commande"),
+                                          QObject::tr("Erreur !.\n"
+                                                      "Click Cancel to exit."), QMessageBox::Cancel);
+            }
+
+}
+
+void MainWindow::on_pushButton_4_kh_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/Khalil/Desktop/projet_1/rii/ze.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    QItemSelectionModel *select = ui->tableView_3_kh->selectionModel();
+
+            int id =select->selectedRows(0).value(0).data().toInt();
+
+           if(ftemp.supprimer(id))
+            {
+                ui->tableView_3_kh->setModel(ftemp.afficher());
+
+             }
+}
+
+void MainWindow::on_pushButton_6_kh_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/Khalil/Desktop/projet_1/rii/ze.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    ui->tableView_3_kh->setModel(ftemp.afficher(  ));
+   int ID= ui->lineEdit_10_kh->text().toInt();
+   ui->tableView_3_kh->setModel(ftemp.recherche(ID));
+
+}
+
+
+void MainWindow::on_pushButton_2_kh_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/Khalil/Desktop/projet_1/rii/ze.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    int ID=ui->lineEdit_2_kh->text().toInt();
+    QString PRENOM=ui->lineEdit_6_kh->text();
+    QString NOM=ui->lineEdit_8_kh->text();
+   int NUMERO=ui->lineEdit_9_kh->text().toInt();
+   QString EMAIL=ui->lineEdit_7_kh->text();
+
+    fournisseur f(ID,PRENOM,NOM,NUMERO,EMAIL);
+
+
+
+    bool test=f.ajouter();
+       qDebug() << "test :" << test;
+    if (test)
+    {
+        ui->tableView_3_kh->setModel(ftemp.afficher());
+        QMessageBox::information(nullptr,QObject::tr("")
+                                 ,QObject::tr("Ajout effectué\n"
+                                              "Click Cancel to exit."),QMessageBox::Cancel);
+    }
+else
+    {
+        QMessageBox::critical(nullptr,QObject::tr("erreur")
+                                 ,QObject::tr("Ajout non effectué\n"
+                                              "Click Cancel to exit."),QMessageBox::Cancel);
+    }
+
+}
+
+void MainWindow::on_pushButton_13_kh_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/Khalil/Desktop/projet_1/rii/ze.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    ui->tableView_4_kh->setModel(ctemp.afficher(  ));
+   int ID= ui->lineEdit_12_kh->text().toInt();
+   ui->tableView_4_kh->setModel(ftemp.recherche(ID));
+}
+
+void MainWindow::on_pushButton_9_kh_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/Khalil/Desktop/projet_1/rii/ze.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    QItemSelectionModel *select = ui->tableView_4_kh->selectionModel();
+
+            int ID =select->selectedRows(0).value(0).data().toInt();
+
+           if(ctemp.supprimer(ID))
+            {
+                ui->tableView_4_kh->setModel(ctemp.afficher());
+
+             }
+}
+
+void MainWindow::on_pushButton_8_kh_clicked()
+{
+    int ID= ui->lineEdit_19_kh->text().toInt();
+            QString DATE_C=ui->lineEdit_20_kh->text();
+            int PRIX= ui->lineEdit_21_kh->text().toInt();
+            int ID_FOURNISSEUR= ui->lineEdit_24_kh->text().toInt();
+            int ID_EMPLOYE= ui->lineEdit_25_kh->text().toInt();
+
+
+            if(ID==0)
+            {
+                QMessageBox::critical(nullptr, QObject::tr("vide"),
+                                      QObject::tr("veuillez saisir tous les champs correctement!\n"), QMessageBox::Cancel);
+
+            }else
+            {
+                bool test=ctemp.modifier(ID,DATE_C,PRIX,ID_FOURNISSEUR,ID_EMPLOYE);
+
+                if (test)
+                {
+                    QMessageBox::information(nullptr, QObject::tr("Modifier une commande"),
+                                             QObject::tr("commande modifié.\n"
+                                                         "Click Cancel to exit."), QMessageBox::Cancel);
+
+                }else
+                    QMessageBox::critical(nullptr, QObject::tr("Modifier une commande"),
+                                          QObject::tr("Erreur !.\n"
+                                                      "Click Cancel to exit."), QMessageBox::Cancel);
+            }
+
+
+}
+
+void MainWindow::on_pushButton_14_kh_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/Khalil/Desktop/projet_1/rii/ze.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    {
+        ui->tableView_4_kh->setModel(ctemp.afficher(  ));
+       int ID= ui->lineEdit_13_kh->text().toInt();
+       ui->tableView_4_kh->setModel(ctemp.recherche(ID));
+
+    }
+}
+
+void MainWindow::on_pushButton_10_kh_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/Khalil/Desktop/projet_1/rii/ze.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    QPrinter printer;
+
+        printer.setPrinterName("desiered printer name");
+
+      QPrintDialog dialog(&printer,this);
+
+        if(dialog.exec()==QDialog::Rejected)
+
+            return;
+}
+
+
+void MainWindow::on_pushButton_15_kh_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/Khalil/Desktop/projet_1/rii/ze.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    ui->tableView_3_kh->setModel(ctemp.afficher(  ));
+   int ID= ui->lineEdit_11_kh->text().toInt();
+   ui->tableView_3_kh->setModel(ftemp.recherche(ID));
+}
+
+
+
+
+
+void MainWindow::on_tableView_3_kh_clicked(const QModelIndex &index)
+{
+        ui->lineEdit_14_kh->setText( ui->tableView_3_kh->model()->data(ui->tableView_3_kh->model()->index(ui->tableView_3_kh->selectionModel()->currentIndex().row(),0)).toString() );
+        ui->lineEdit_15_kh->setText( ui->tableView_3_kh->model()->data(ui->tableView_3_kh->model()->index(ui->tableView_3_kh->selectionModel()->currentIndex().row(),1)).toString() );
+        ui->lineEdit_16_kh->setText( ui->tableView_3_kh->model()->data(ui->tableView_3_kh->model()->index(ui->tableView_3_kh->selectionModel()->currentIndex().row(),2)).toString() );
+        ui->lineEdit_17_kh->setText( ui->tableView_3_kh->model()->data(ui->tableView_3_kh->model()->index(ui->tableView_3_kh->selectionModel()->currentIndex().row(),0)).toString() );
+        ui->lineEdit_18_kh->setText( ui->tableView_3_kh->model()->data(ui->tableView_3_kh->model()->index(ui->tableView_3_kh->selectionModel()->currentIndex().row(),1)).toString() );
+}
+
+void MainWindow::on_tableView_4_kh_clicked(const QModelIndex &index)
+{
+    ui->lineEdit_19_kh->setText( ui->tableView_4_kh->model()->data(ui->tableView_4_kh->model()->index(ui->tableView_4_kh->selectionModel()->currentIndex().row(),0)).toString() );
+    ui->lineEdit_20_kh->setText( ui->tableView_4_kh->model()->data(ui->tableView_4_kh->model()->index(ui->tableView_4_kh->selectionModel()->currentIndex().row(),1)).toString() );
+    ui->lineEdit_21_kh->setText( ui->tableView_4_kh->model()->data(ui->tableView_4_kh->model()->index(ui->tableView_4_kh->selectionModel()->currentIndex().row(),2)).toString() );
+     ui->lineEdit_24_kh->setText( ui->tableView_4_kh->model()->data(ui->tableView_4_kh->model()->index(ui->tableView_4_kh->selectionModel()->currentIndex().row(),3)).toString() );
+      ui->lineEdit_25_kh->setText( ui->tableView_4_kh->model()->data(ui->tableView_4_kh->model()->index(ui->tableView_4_kh->selectionModel()->currentIndex().row(),4)).toString() );
+
+}
+
+
+
+/*
+void MainWindow::on_pushButton_11_clicked()
+{
+
+}
+
+void MainWindow::on_pushButton_12_clicked()
+{
+
+}
+
+void MainWindow::on_pushButton_16_clicked()
+{
+
+}*/
+
+void MainWindow::on_pushButton_3_kh_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/Khalil/Desktop/projet_1/rii/ze.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+      fournisseur f;
+      f.trier(ui);
+}
+void MainWindow::on_pushButton_7_kh_clicked()
+{
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile("C:/Users/Khalil/Desktop/projet_1/rii/ze.mp3"));
+      if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
+    c_achat c;
+    c.trier(ui);
+
+}
+
+void MainWindow::on_pdf_kh_clicked()
+{
+    QPdfWriter pdf("C:/Users/Khalil/Desktop/projet_1/Pdf.pdf");
+    QPainter painter(&pdf);
+    int i = 4000;
+    painter.setPen(Qt::blue);
+    painter.setFont(QFont("Arial", 30));
+    painter.drawText(2300,1200,"Liste Des Fournisseurs");
+    painter.setPen(Qt::black);
+    painter.setFont(QFont("Arial", 50));
+    // painter.drawText(1100,2000,afficheDC);
+    painter.drawRect(1500,200,7300,2600);
+    //painter.drawPixmap(QRect(7600,70,2000,2600),QPixmap("C:/Users/RH/Desktop/projecpp/image/logopdf.png"));
+    painter.drawRect(0,3000,9600,500);
+    painter.setFont(QFont("Arial", 9));
+    painter.drawText(300,3300,"ID");
+    painter.drawText(2300,3300,"PRENOM");
+    painter.drawText(4300,3300,"NOM");
+    painter.drawText(6300,3300,"NUMERO");
+    painter.drawText(8000,3300,"MAIL");
+    QSqlQuery query;
+    query.prepare("select * from fournisseur");
+    query.exec();
+    while (query.next())
+    {
+        painter.drawText(300,i,query.value(0).toString());
+        painter.drawText(2300,i,query.value(1).toString());
+        painter.drawText(4300,i,query.value(2).toString());
+        painter.drawText(6300,i,query.value(3).toString());
+        painter.drawText(8000,i,query.value(4).toString());
+        i = i +500;
+    }
+    int reponse = QMessageBox::question(this, "Génerer PDF", "<PDF Enregistré>...Vous Voulez Affichez Le PDF ?", QMessageBox::Yes |  QMessageBox::No);
+    if (reponse == QMessageBox::Yes)
+    {
+        QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/Khalil/Desktop/projet_1/Pdf.pdf"));
+
+        painter.end();
+    }
+    if (reponse == QMessageBox::No)
+    {
+        painter.end();
+    }
+}
+
 
 //********************************************************
