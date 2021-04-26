@@ -6,6 +6,8 @@
 #include "notification.h"
 #include "popup.h"
 
+#include "employer.h"
+#include "deppartement.h"
 #include <QMediaPlayer>
 
 #include <QDialog>
@@ -105,10 +107,40 @@ private slots:
     //*********************************
 
 
+    void on_pb_ajouter_clicked();
+
+    void on_pb_supp_clicked();
+
+    void on_pb_update_clicked();
+
+    void on_pb_ajouter_depp_clicked();
+
+    void on_pb_supp_depp_clicked();
+
+
+    void on_pdf_3_clicked();
+
+
+
+    void on_pb_chercher_clicked();
+
+    void on_update_depp_clicked();
+
+    void on_pb_chercher_depp_clicked();
+
+    void on_trier_clicked();
+
+    void on_reset_employer_clicked();
+
+    void on_reset_depp_clicked();
+
+
+
 
 
 private:
     Ui::MainWindow *ui;
+
     CLIENT tmpabonnee;
     carte_fid tmpabonnement;
     Notification N;
@@ -121,6 +153,8 @@ private:
     QByteArray image;
     QTimer * timerr ;
      QString text;
+     Employer E;
+     Deppartement D;
 
 };
 

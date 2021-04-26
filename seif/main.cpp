@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "seif.h"
 
 #include <QApplication>
 #include <QDebug>

@@ -36,6 +36,8 @@ CONFIG += openssl-linked
 SOURCES += \
     carte_fid.cpp \
     client.cpp \
+    deppartement.cpp \
+    employer.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
@@ -47,6 +49,8 @@ SOURCES += \
 HEADERS += \
     carte_fid.h \
     client.h \
+    deppartement.h \
+    employer.h \
         mainwindow.h \
     connection.h \
     nizar.h \
