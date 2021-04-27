@@ -206,6 +206,33 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_client_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0) ;
+}
+
+void MainWindow::on_commande_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2) ;
+}
+
+void MainWindow::on_employe_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1) ;
+}
+
+void MainWindow::on_fournisseur_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4) ;
+}
+
+void MainWindow::on_maintenance_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3) ;
+}
+
+
+
 
 //******************************* client *****************
 
@@ -708,7 +735,7 @@ void MainWindow::on_comboBox_7_activated()
 
 
 
-/*void MainWindow::mailSent(QString status)
+void MainWindow::mailSent(QString status)
 {
     if(status == "Message sent")
         N.mail_Abonnement();
@@ -740,7 +767,7 @@ if((test==1)&&(mail[i]=="."))
         return true;
     }
 return false;}
-*/
+
 
 
 void MainWindow::on_radioButton_6_clicked()
@@ -1232,12 +1259,12 @@ void MainWindow::sendMail()
     smtp->sendMail(ui->uname_3->text(), ui->rcpt_3->text() , ui->subject_3->text(),ui->msg_3->toPlainText());
 }
 
-void MainWindow::mailSent(QString status)
+/*void MainWindow::mailSent(QString status)
 {
     if(status == "Message sent")
         QMessageBox::warning( 0, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
 }
-
+*/
 
 
 void MainWindow::on_ajouterc_4_clicked()

@@ -47,7 +47,11 @@ public:
 
 private slots:
 
-
+     void on_client_clicked();
+      void on_commande_clicked();
+       void on_fournisseur_clicked();
+        void on_employe_clicked();
+         void on_maintenance_clicked();
 
     //************************* client
     void refresh();
