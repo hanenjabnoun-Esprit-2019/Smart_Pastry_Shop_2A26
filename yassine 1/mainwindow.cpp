@@ -104,9 +104,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->maintenance->setGeometry(60,430,131,71);
 
 
-    ui->le_id->setValidator(new QIntValidator(0, 9999, this));
-    ui->le_numero->setValidator(new QIntValidator(0, 99999999, this));
-    ui->le_id_dep->setValidator(new QIntValidator(0, 9999, this));
+
     ui->tab_employer->setModel(E.afficher());
     ui->tab_depp->setModel(D.afficher());
 
@@ -891,7 +889,11 @@ void MainWindow::on_pb_ajouter_clicked()
     float salaire=ui->le_salaire->text().toFloat();
     int numero=ui->le_numero->text().toInt();
     int id_depp=ui->le_id_depp->text().toInt();
-    Employer E(id,nom,prenom,salaire,numero,id_depp);
+    QString service=ui->serviceemploye->currentText();
+    QString mdp=ui->motdepasse->text();
+
+
+    Employer E(id,nom,prenom,salaire,numero,id_depp,service,mdp);
     bool test=E.ajouter();
 
     if(test)
@@ -906,33 +908,50 @@ void MainWindow::on_pb_ajouter_clicked()
 
 void MainWindow::on_pb_supp_clicked()
 {
-    Employer E1;
-    E1.setid(ui->le_id_supp->text().toInt());
-    int id=ui->le_id_supp->text().toInt();
-    bool test=E1.supprimer(E1.getid());
 
-    QMessageBox msgBox;
-    if(test)
-    {   msgBox.setText("Suppression avec succes.");
-         ui->tab_employer->setModel(E.afficher());}
 
-    else
-                msgBox.setText("Echec de suppression");
-                msgBox.exec();
+
+
+
+                int res=ui->le_id_supp->text().toInt();
+
+                QString str = " Vous voulez vraiment supprimer \n l'employe :";
+                int ret = QMessageBox::question(this, tr("Employe"),str,QMessageBox::Ok|QMessageBox::Cancel);
+
+                switch (ret) {
+                case QMessageBox::Ok:
+                    if (E.supprimer(res)){
+
+                    }else
+                    {
+                        QMessageBox::critical(0, qApp->tr("Suppression"),
+                                              qApp->tr("Employe non trouvé "), QMessageBox::Cancel);
+                    }
+                    break;
+                case QMessageBox::Cancel:
+
+                    break;
+                default:
+                    // should never be reached
+                    break;
+                }
 }
 
 void MainWindow::on_pb_update_clicked()
 {
-    Employer E1;
-    E1.setid(ui->le_id->text().toInt());
+
 
     int id=ui->le_id_2->text().toInt();
     QString nom=ui->le_nom_2->text();
     QString prenom=ui->le_prenom_2->text();
     float salaire=ui->le_salaire_2->text().toInt();
-    int numero=ui->le_numero_2->text().toInt();
+    long numero=ui->le_numero_2->text().toLong();
     int id_depp=ui->le_id_depp_2->text().toInt();
-    Employer  E(id,nom,prenom,salaire,numero,id_depp);
+    QString service=ui->serviceemploye_2->currentText();
+    QString mdp=ui->motdepasse_2->text();
+
+
+    Employer  E(id,nom,prenom,salaire,numero,id_depp,service,mdp);
     bool test=E.modifier(id);
 
     QMessageBox msgBox;

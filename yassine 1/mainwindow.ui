@@ -508,7 +508,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="../../../interface_finale_sm_ci/resource.qrc">:/images/logo.png</pixmap>
+      <pixmap resource="images.qrc">:/images/logo.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -988,7 +988,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       <string/>
      </property>
      <property name="icon">
-      <iconset>
+      <iconset resource="images.qrc">
        <normaloff>:/images/boutton maintenance.png</normaloff>:/images/boutton maintenance.png</iconset>
      </property>
      <property name="iconSize">
@@ -1472,7 +1472,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       <string>Déconnexion</string>
      </property>
      <property name="icon">
-      <iconset resource="../../../interface_finale_sm_ci/resource.qrc">
+      <iconset resource="images.qrc">
        <normaloff>:/images/deco.png</normaloff>:/images/deco.png</iconset>
      </property>
     </widget>
@@ -1950,7 +1950,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       <string/>
      </property>
      <property name="icon">
-      <iconset>
+      <iconset resource="images.qrc">
        <normaloff>:/images/fournisseur.png</normaloff>:/images/fournisseur.png</iconset>
      </property>
      <property name="iconSize">
@@ -2434,7 +2434,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       <string/>
      </property>
      <property name="icon">
-      <iconset>
+      <iconset resource="images.qrc">
        <normaloff>:/images/boutton employe.png</normaloff>:/images/boutton employe.png</iconset>
      </property>
      <property name="iconSize">
@@ -2918,7 +2918,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       <string/>
      </property>
      <property name="icon">
-      <iconset>
+      <iconset resource="images.qrc">
        <normaloff>:/images/boutton commande.png</normaloff>:/images/boutton commande.png</iconset>
      </property>
      <property name="iconSize">
@@ -3402,7 +3402,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       <string/>
      </property>
      <property name="icon">
-      <iconset>
+      <iconset resource="images.qrc">
        <normaloff>:/images/boutton client.png</normaloff>:/images/boutton client.png</iconset>
      </property>
      <property name="iconSize">
@@ -3889,7 +3889,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <property name="currentIndex">
      <number>1</number>
     </property>
-    <widget class="QWidget" name="stackedWidgetPage1" native="true">
+    <widget class="QWidget" name="stackedWidgetPage1">
      <widget class="QTabWidget" name="tabWidget_3">
       <property name="geometry">
        <rect>
@@ -5639,7 +5639,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap resource="../../../interface_finale_sm_ci/resource.qrc">:/images/modifier.png</pixmap>
+             <pixmap resource="images.qrc">:/images/modifier.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
@@ -10478,7 +10478,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../../interface_finale_sm_ci/resource.qrc">:/images/loupe.png</pixmap>
+           <pixmap resource="images.qrc">:/images/loupe.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -11109,7 +11109,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../../interface_finale_sm_ci/resource.qrc">:/images/modifier salarie.png</pixmap>
+           <pixmap resource="images.qrc">:/images/modifier salarie.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -12268,7 +12268,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../../interface_finale_sm_ci/resource.qrc">:/images/modifier.png</pixmap>
+           <pixmap resource="images.qrc">:/images/modifier.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -16655,7 +16655,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../../interface_finale_sm_ci/resource.qrc">:/images/loupe.png</pixmap>
+           <pixmap resource="images.qrc">:/images/loupe.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -17237,7 +17237,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../../interface_finale_sm_ci/resource.qrc">:/images/modifier salarie.png</pixmap>
+           <pixmap resource="images.qrc">:/images/modifier salarie.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -17886,7 +17886,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="../../../interface_finale_sm_ci/resource.qrc">:/images/mail.png</pixmap>
+           <pixmap resource="images.qrc">:/images/mail.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -17921,7 +17921,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="stackedWidgetPage2" native="true">
+    <widget class="QWidget" name="stackedWidgetPage2">
      <widget class="QTabWidget" name="tabWidget_2">
       <property name="geometry">
        <rect>
@@ -17943,12 +17943,12 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>661</width>
-          <height>391</height>
+          <width>761</width>
+          <height>501</height>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tab_8">
          <attribute name="title">
@@ -17957,7 +17957,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
          <widget class="QLabel" name="label">
           <property name="geometry">
            <rect>
-            <x>40</x>
+            <x>30</x>
             <y>30</y>
             <width>81</width>
             <height>21</height>
@@ -17970,7 +17970,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
          <widget class="QLabel" name="label_2">
           <property name="geometry">
            <rect>
-            <x>40</x>
+            <x>30</x>
             <y>70</y>
             <width>61</width>
             <height>16</height>
@@ -17983,7 +17983,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
          <widget class="QLabel" name="label_3">
           <property name="geometry">
            <rect>
-            <x>40</x>
+            <x>30</x>
             <y>110</y>
             <width>61</width>
             <height>16</height>
@@ -17996,7 +17996,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
          <widget class="QLabel" name="label_4">
           <property name="geometry">
            <rect>
-            <x>40</x>
+            <x>30</x>
             <y>150</y>
             <width>61</width>
             <height>16</height>
@@ -18009,7 +18009,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
          <widget class="QLabel" name="label_5">
           <property name="geometry">
            <rect>
-            <x>40</x>
+            <x>30</x>
             <y>190</y>
             <width>91</width>
             <height>21</height>
@@ -18022,7 +18022,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
          <widget class="QLabel" name="label_6">
           <property name="geometry">
            <rect>
-            <x>40</x>
+            <x>30</x>
             <y>230</y>
             <width>91</width>
             <height>21</height>
@@ -18037,8 +18037,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <rect>
             <x>10</x>
             <y>10</y>
-            <width>641</width>
-            <height>331</height>
+            <width>741</width>
+            <height>461</height>
            </rect>
           </property>
           <property name="title">
@@ -18047,8 +18047,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
           <widget class="QPushButton" name="pb_ajouter">
            <property name="geometry">
             <rect>
-             <x>460</x>
-             <y>220</y>
+             <x>570</x>
+             <y>380</y>
              <width>101</width>
              <height>41</height>
             </rect>
@@ -18115,6 +18115,77 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
              <width>221</width>
              <height>31</height>
             </rect>
+           </property>
+          </widget>
+          <widget class="QComboBox" name="serviceemploye">
+           <property name="geometry">
+            <rect>
+             <x>150</x>
+             <y>250</y>
+             <width>221</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">    border-style: outset;
+background-color: rgb(255, 255, 255);
+    border-width: 1px;
+    border-color: rgb(66, 66, 66);</string>
+           </property>
+           <property name="duplicatesEnabled">
+            <bool>true</bool>
+           </property>
+           <item>
+            <property name="text">
+             <string>Administrateur</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>User</string>
+            </property>
+           </item>
+          </widget>
+          <widget class="QLineEdit" name="motdepasse">
+           <property name="geometry">
+            <rect>
+             <x>150</x>
+             <y>290</y>
+             <width>221</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="echoMode">
+            <enum>QLineEdit::PasswordEchoOnEdit</enum>
+           </property>
+           <property name="placeholderText">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_service">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>260</y>
+             <width>131</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Service de l'employé : </string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_mdp">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>300</y>
+             <width>91</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Mot de passe : </string>
            </property>
           </widget>
          </widget>
@@ -18745,8 +18816,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>601</width>
-             <height>301</height>
+             <width>741</width>
+             <height>461</height>
             </rect>
            </property>
            <property name="title">
@@ -18757,7 +18828,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
              <rect>
               <x>180</x>
               <y>20</y>
-              <width>181</width>
+              <width>221</width>
               <height>31</height>
              </rect>
             </property>
@@ -18767,7 +18838,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
              <rect>
               <x>180</x>
               <y>60</y>
-              <width>181</width>
+              <width>221</width>
               <height>31</height>
              </rect>
             </property>
@@ -18777,7 +18848,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
              <rect>
               <x>180</x>
               <y>100</y>
-              <width>181</width>
+              <width>221</width>
               <height>31</height>
              </rect>
             </property>
@@ -18787,7 +18858,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
              <rect>
               <x>180</x>
               <y>140</y>
-              <width>181</width>
+              <width>221</width>
               <height>31</height>
              </rect>
             </property>
@@ -18797,7 +18868,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
              <rect>
               <x>180</x>
               <y>180</y>
-              <width>181</width>
+              <width>221</width>
               <height>31</height>
              </rect>
             </property>
@@ -18807,28 +18878,15 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
              <rect>
               <x>180</x>
               <y>220</y>
-              <width>181</width>
+              <width>221</width>
               <height>31</height>
              </rect>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pb_update">
-            <property name="geometry">
-             <rect>
-              <x>450</x>
-              <y>230</y>
-              <width>121</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>modifier</string>
             </property>
            </widget>
            <widget class="QLabel" name="label_8">
             <property name="geometry">
              <rect>
-              <x>60</x>
+              <x>50</x>
               <y>30</y>
               <width>61</width>
               <height>16</height>
@@ -18841,7 +18899,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <widget class="QLabel" name="label_15">
             <property name="geometry">
              <rect>
-              <x>60</x>
+              <x>50</x>
               <y>70</y>
               <width>61</width>
               <height>16</height>
@@ -18854,7 +18912,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <widget class="QLabel" name="label_16">
             <property name="geometry">
              <rect>
-              <x>60</x>
+              <x>50</x>
               <y>110</y>
               <width>61</width>
               <height>16</height>
@@ -18867,7 +18925,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <widget class="QLabel" name="label_17">
             <property name="geometry">
              <rect>
-              <x>60</x>
+              <x>50</x>
               <y>150</y>
               <width>61</width>
               <height>16</height>
@@ -18880,8 +18938,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <widget class="QLabel" name="label_18">
             <property name="geometry">
              <rect>
-              <x>60</x>
-              <y>180</y>
+              <x>50</x>
+              <y>190</y>
               <width>91</width>
               <height>21</height>
              </rect>
@@ -18893,8 +18951,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
            <widget class="QLabel" name="label_19">
             <property name="geometry">
              <rect>
-              <x>60</x>
-              <y>220</y>
+              <x>50</x>
+              <y>230</y>
               <width>91</width>
               <height>21</height>
              </rect>
@@ -18903,15 +18961,99 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
              <string>salaire</string>
             </property>
            </widget>
+           <widget class="QComboBox" name="serviceemploye_2">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>260</y>
+              <width>221</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">    border-style: outset;
+background-color: rgb(255, 255, 255);
+    border-width: 1px;
+    border-color: rgb(66, 66, 66);</string>
+            </property>
+            <property name="duplicatesEnabled">
+             <bool>true</bool>
+            </property>
+            <item>
+             <property name="text">
+              <string>Administrateur</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>User</string>
+             </property>
+            </item>
+           </widget>
+           <widget class="QLabel" name="label_service_3">
+            <property name="geometry">
+             <rect>
+              <x>50</x>
+              <y>270</y>
+              <width>131</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Service de l'employé : </string>
+            </property>
+           </widget>
           </widget>
+         </widget>
+         <widget class="QPushButton" name="pb_update">
+          <property name="geometry">
+           <rect>
+            <x>470</x>
+            <y>380</y>
+            <width>121</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>modifier</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="motdepasse_2">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>310</y>
+            <width>221</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::PasswordEchoOnEdit</enum>
+          </property>
+          <property name="placeholderText">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_mdp_3">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>320</y>
+            <width>91</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Mot de passe : </string>
+          </property>
          </widget>
         </widget>
        </widget>
        <widget class="QPushButton" name="trier">
         <property name="geometry">
          <rect>
-          <x>210</x>
-          <y>380</y>
+          <x>140</x>
+          <y>510</y>
           <width>201</width>
           <height>31</height>
          </rect>
@@ -18926,8 +19068,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
        <widget class="QPushButton" name="pdf_3">
         <property name="geometry">
          <rect>
-          <x>210</x>
-          <y>420</y>
+          <x>380</x>
+          <y>510</y>
           <width>201</width>
           <height>31</height>
          </rect>
@@ -19798,7 +19940,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="stackedWidgetPage3" native="true">
+    <widget class="QWidget" name="stackedWidgetPage3">
      <widget class="QTabWidget" name="tabWidget_4">
       <property name="geometry">
        <rect>
@@ -22663,7 +22805,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="stackedWidgetPage4" native="true">
+    <widget class="QWidget" name="stackedWidgetPage4">
      <widget class="QTabWidget" name="tabWidget_5">
       <property name="geometry">
        <rect>
@@ -24099,7 +24241,7 @@ font: 63 10pt &quot;Yu Gothic UI Semibold&quot;;</string>
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="stackedWidgetPage5" native="true">
+    <widget class="QWidget" name="stackedWidgetPage5">
      <widget class="QTabWidget" name="tabWidget_11">
       <property name="geometry">
        <rect>
@@ -26042,6 +26184,8 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>
