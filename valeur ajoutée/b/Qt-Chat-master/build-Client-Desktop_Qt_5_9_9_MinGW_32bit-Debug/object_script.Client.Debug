@@ -1,0 +1,17 @@
+INPUT(
+./debug\main.o
+./debug\authmenu.o
+./debug\netservice.o
+./debug\chatwidget.o
+./debug\authanswer.o
+./debug\basedata.o
+./debug\userlist.o
+./debug\userdata.o
+./debug\message.o
+./debug\styledialog.o
+./debug\qrc_qrc.o
+./debug\moc_authmenu.o
+./debug\moc_netservice.o
+./debug\moc_chatwidget.o
+./debug\moc_styledialog.o
+);

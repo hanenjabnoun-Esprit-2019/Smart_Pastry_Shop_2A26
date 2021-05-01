@@ -1,0 +1,17 @@
+INPUT(
+./release\main.o
+./release\authmenu.o
+./release\netservice.o
+./release\chatwidget.o
+./release\authanswer.o
+./release\basedata.o
+./release\userlist.o
+./release\userdata.o
+./release\message.o
+./release\styledialog.o
+./release\qrc_qrc.o
+./release\moc_authmenu.o
+./release\moc_netservice.o
+./release\moc_chatwidget.o
+./release\moc_styledialog.o
+);

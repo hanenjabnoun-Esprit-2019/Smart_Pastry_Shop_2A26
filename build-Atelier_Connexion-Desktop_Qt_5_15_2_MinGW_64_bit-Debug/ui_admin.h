@@ -223,6 +223,8 @@ public:
     QLabel *label_mdp;
     QLabel *label_2;
     QLabel *label_6;
+    QLineEdit *email;
+    QLabel *label_mdp_2;
     QWidget *tab_9;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
@@ -255,6 +257,8 @@ public:
     QPushButton *pb_update;
     QLineEdit *motdepasse_2;
     QLabel *label_mdp_3;
+    QLabel *label_mdp_4;
+    QLineEdit *email_3;
     QPushButton *trier;
     QPushButton *pdf_3;
     QWidget *tab_13;
@@ -353,6 +357,8 @@ public:
     QLineEdit *port_3;
     QPushButton *sendBtn_2;
     QPushButton *exitBtn_2;
+    QWidget *tab;
+    QPushButton *pushButton;
     QWidget *tab_46;
     QTabWidget *tabWidget_9;
     QWidget *tab_47;
@@ -569,6 +575,11 @@ public:
     QPushButton *pushButton_7_kh;
     QPushButton *pushButton_10_kh;
     QPushButton *pushButton_11_kh;
+    QWidget *stackedWidgetPage6;
+    QTabWidget *tabWidget_16;
+    QWidget *tabWidgetPage1_2;
+    QLabel *label_153;
+    QPushButton *chatButton;
 
     void setupUi(QDialog *admin)
     {
@@ -17402,6 +17413,14 @@ public:
         label_6 = new QLabel(groupBox);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setGeometry(QRect(20, 220, 91, 21));
+        email = new QLineEdit(groupBox);
+        email->setObjectName(QString::fromUtf8("email"));
+        email->setGeometry(QRect(150, 330, 221, 31));
+        email->setMaxLength(50);
+        email->setClearButtonEnabled(true);
+        label_mdp_2 = new QLabel(groupBox);
+        label_mdp_2->setObjectName(QString::fromUtf8("label_mdp_2"));
+        label_mdp_2->setGeometry(QRect(20, 340, 91, 16));
         employer->addTab(tab_8, QString());
         groupBox->raise();
         label->raise();
@@ -17981,7 +18000,7 @@ public:
         label_8->setGeometry(QRect(50, 30, 61, 16));
         pb_update = new QPushButton(tab_11);
         pb_update->setObjectName(QString::fromUtf8("pb_update"));
-        pb_update->setGeometry(QRect(470, 380, 121, 41));
+        pb_update->setGeometry(QRect(470, 400, 121, 41));
         motdepasse_2 = new QLineEdit(tab_11);
         motdepasse_2->setObjectName(QString::fromUtf8("motdepasse_2"));
         motdepasse_2->setGeometry(QRect(190, 310, 221, 31));
@@ -17989,14 +18008,22 @@ public:
         label_mdp_3 = new QLabel(tab_11);
         label_mdp_3->setObjectName(QString::fromUtf8("label_mdp_3"));
         label_mdp_3->setGeometry(QRect(60, 320, 91, 16));
+        label_mdp_4 = new QLabel(tab_11);
+        label_mdp_4->setObjectName(QString::fromUtf8("label_mdp_4"));
+        label_mdp_4->setGeometry(QRect(60, 360, 91, 16));
+        email_3 = new QLineEdit(tab_11);
+        email_3->setObjectName(QString::fromUtf8("email_3"));
+        email_3->setGeometry(QRect(190, 350, 221, 31));
+        email_3->setMaxLength(50);
+        email_3->setClearButtonEnabled(true);
         employer->addTab(tab_11, QString());
         trier = new QPushButton(tab_5);
         trier->setObjectName(QString::fromUtf8("trier"));
-        trier->setGeometry(QRect(140, 510, 201, 31));
+        trier->setGeometry(QRect(140, 520, 201, 31));
         trier->setStyleSheet(QString::fromUtf8(""));
         pdf_3 = new QPushButton(tab_5);
         pdf_3->setObjectName(QString::fromUtf8("pdf_3"));
-        pdf_3->setGeometry(QRect(380, 510, 201, 31));
+        pdf_3->setGeometry(QRect(380, 520, 201, 31));
         pdf_3->setStyleSheet(QString::fromUtf8(""));
         tabWidget_2->addTab(tab_5, QString());
         tab_13 = new QWidget();
@@ -18909,6 +18936,12 @@ public:
         exitBtn_2->setObjectName(QString::fromUtf8("exitBtn_2"));
         exitBtn_2->setGeometry(QRect(430, 490, 75, 23));
         tabWidget_8->addTab(tab_45, QString());
+        tab = new QWidget();
+        tab->setObjectName(QString::fromUtf8("tab"));
+        pushButton = new QPushButton(tab);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(240, 240, 281, 51));
+        tabWidget_8->addTab(tab, QString());
         tabWidget_4->addTab(tab_40, QString());
         tab_46 = new QWidget();
         tab_46->setObjectName(QString::fromUtf8("tab_46"));
@@ -22103,19 +22136,46 @@ public:
         tabWidget_15->addTab(tab_58, QString());
         tabWidget_11->addTab(tab_55, QString());
         stackedWidget->addWidget(stackedWidgetPage5);
+        stackedWidgetPage6 = new QWidget();
+        stackedWidgetPage6->setObjectName(QString::fromUtf8("stackedWidgetPage6"));
+        tabWidget_16 = new QTabWidget(stackedWidgetPage6);
+        tabWidget_16->setObjectName(QString::fromUtf8("tabWidget_16"));
+        tabWidget_16->setGeometry(QRect(0, 0, 771, 581));
+        QFont font7;
+        font7.setFamily(QString::fromUtf8("MS Shell Dlg 2"));
+        font7.setPointSize(8);
+        font7.setBold(false);
+        font7.setWeight(50);
+        tabWidget_16->setFont(font7);
+        tabWidgetPage1_2 = new QWidget();
+        tabWidgetPage1_2->setObjectName(QString::fromUtf8("tabWidgetPage1_2"));
+        label_153 = new QLabel(tabWidgetPage1_2);
+        label_153->setObjectName(QString::fromUtf8("label_153"));
+        label_153->setGeometry(QRect(200, 170, 391, 181));
+        label_153->setFont(font4);
+        chatButton = new QPushButton(tabWidgetPage1_2);
+        chatButton->setObjectName(QString::fromUtf8("chatButton"));
+        chatButton->setGeometry(QRect(240, 400, 311, 51));
+        chatButton->setStyleSheet(QString::fromUtf8("background-color:white; \n"
+"color:black; \n"
+"border-style:outset ; \n"
+"border-width:2px ; \n"
+"border-radius:10px;"));
+        tabWidget_16->addTab(tabWidgetPage1_2, QString());
+        stackedWidget->addWidget(stackedWidgetPage6);
 
         retranslateUi(admin);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(2);
         tabWidget_3->setCurrentIndex(0);
         tabWidget_7->setCurrentIndex(2);
         tabWidget_12->setCurrentIndex(0);
         tabWidget_13->setCurrentIndex(3);
         tabWidget_2->setCurrentIndex(1);
-        employer->setCurrentIndex(3);
+        employer->setCurrentIndex(2);
         depp->setCurrentIndex(0);
-        tabWidget_4->setCurrentIndex(1);
-        tabWidget_8->setCurrentIndex(4);
+        tabWidget_4->setCurrentIndex(0);
+        tabWidget_8->setCurrentIndex(5);
         tabWidget_9->setCurrentIndex(4);
         tabWidget_5->setCurrentIndex(0);
         tabWidget_6->setCurrentIndex(2);
@@ -22123,6 +22183,7 @@ public:
         tabWidget_11->setCurrentIndex(1);
         tabWidget_14->setCurrentIndex(2);
         tabWidget_15->setCurrentIndex(2);
+        tabWidget_16->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(admin);
@@ -22238,7 +22299,7 @@ public:
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt;\"><br /></p></body></html>", nullptr));
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:7.8pt;\"><br /></p></body></html>", nullptr));
         label_89->setText(QCoreApplication::translate("admin", "text", nullptr));
         pb_ajouter_7->setText(QCoreApplication::translate("admin", "ENVOYER", nullptr));
         label_90->setText(QCoreApplication::translate("admin", "mail", nullptr));
@@ -22261,6 +22322,7 @@ public:
         label_mdp->setText(QCoreApplication::translate("admin", "Mot de passe : ", nullptr));
         label_2->setText(QCoreApplication::translate("admin", "prenom", nullptr));
         label_6->setText(QCoreApplication::translate("admin", "salaire", nullptr));
+        label_mdp_2->setText(QCoreApplication::translate("admin", "Email", nullptr));
         employer->setTabText(employer->indexOf(tab_8), QCoreApplication::translate("admin", "nouvel employ\303\251", nullptr));
         pb_chercher->setText(QCoreApplication::translate("admin", "chercher", nullptr));
         reset_employer->setText(QCoreApplication::translate("admin", "<-", nullptr));
@@ -22284,6 +22346,7 @@ public:
         pb_update->setText(QCoreApplication::translate("admin", "modifier", nullptr));
         motdepasse_2->setPlaceholderText(QString());
         label_mdp_3->setText(QCoreApplication::translate("admin", "Mot de passe : ", nullptr));
+        label_mdp_4->setText(QCoreApplication::translate("admin", "Email", nullptr));
         employer->setTabText(employer->indexOf(tab_11), QCoreApplication::translate("admin", "modifier employ\303\251", nullptr));
         trier->setText(QCoreApplication::translate("admin", "trier par salaire", nullptr));
         pdf_3->setText(QCoreApplication::translate("admin", "pdf", nullptr));
@@ -22348,6 +22411,8 @@ public:
         sendBtn_2->setText(QCoreApplication::translate("admin", "send", nullptr));
         exitBtn_2->setText(QCoreApplication::translate("admin", "exit", nullptr));
         tabWidget_8->setTabText(tabWidget_8->indexOf(tab_45), QCoreApplication::translate("admin", "send mail", nullptr));
+        pushButton->setText(QCoreApplication::translate("admin", "START CHAT NOW ", nullptr));
+        tabWidget_8->setTabText(tabWidget_8->indexOf(tab), QCoreApplication::translate("admin", "CHAT", nullptr));
         tabWidget_4->setTabText(tabWidget_4->indexOf(tab_40), QCoreApplication::translate("admin", "commande achat", nullptr));
         label_130->setText(QString());
         label_131->setText(QCoreApplication::translate("admin", "ID", nullptr));
@@ -22485,6 +22550,9 @@ public:
         pushButton_11_kh->setText(QCoreApplication::translate("admin", "PDF", nullptr));
         tabWidget_15->setTabText(tabWidget_15->indexOf(tab_58), QCoreApplication::translate("admin", "Afficher", nullptr));
         tabWidget_11->setTabText(tabWidget_11->indexOf(tab_55), QCoreApplication::translate("admin", "ACHAT", nullptr));
+        label_153->setText(QCoreApplication::translate("admin", "<html><head/><body><p align=\"center\"><span style=\" font-size:28pt;\">Bonjour ADMIN</span></p><p align=\"center\"><span style=\" font-size:28pt;\">ID : ADMIN</span></p></body></html>", nullptr));
+        chatButton->setText(QCoreApplication::translate("admin", "Chat", nullptr));
+        tabWidget_16->setTabText(tabWidget_16->indexOf(tabWidgetPage1_2), QString());
     } // retranslateUi
 
 };
